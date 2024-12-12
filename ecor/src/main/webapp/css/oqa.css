@@ -1,0 +1,21 @@
+@charset "UTF-8";
+table, th, td {
+  border: 1px solid black;
+}
+table {
+	
+	width: 100%;
+	margin-top: 20px;	
+}
+td{
+	text-align: center;
+}
+
+
+#tableqtrposition th{
+	color: blue;
+}
+
+#tablelist th{
+	color: red;
+}

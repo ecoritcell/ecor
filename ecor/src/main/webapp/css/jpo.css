@@ -1,0 +1,247 @@
+@charset "UTF-8";
+
+#mainbody{
+	
+	padding:0px;
+	margin:0px;
+}
+
+#pagename {
+	position: relative;
+	overflow: hidden;
+	text-align: center;
+}
+
+#pagename p{
+	padding: 0px;
+	margin: 0px;
+	/* height: 40px; */
+	text-transform: uppercase;
+	font-size: 11pt;	
+	font-weight: 400;
+	color: white;
+	/* background-color: red; */
+	text-align: center;
+	
+} 
+
+#form-wrapper{
+	display: flex;
+	justify-content: space-between;
+}
+
+#formdiv{
+	display: flex;
+	align-items: center;
+}
+
+.flex-items {
+	height: 40px;
+	margin: 10px;
+}
+
+#years{
+	width: 200px;
+	text-align: center;
+}
+
+#yearlable{
+	display: flex;
+	align-items: center;
+}
+
+
+
+#addnewanrcontainer{
+	
+	position:static;
+	margin:auto;
+	width: 500px;
+	/* overflow:auto; */	
+	/* background-color: green; */
+}
+
+.addnewanrpara-flexitem{
+	width: 250px;
+	text-align: right;
+	display: flex;
+    flex-direction: column;
+    justify-content: center;
+	
+}
+
+
+#addnewanr label{
+	font-weight: bold;
+}
+
+.common-input{
+  
+  /* height: 52px; */
+  height: 40px;
+  width: 100%;
+  outline: none;
+  margin-top:5px;
+  margin-bottom:5px;
+/*   padding: 0 15px; */
+  font-size: 17px;
+  font-weight: 400;
+  color: #333;
+  border: 1.5px solid #C7BEBE;
+  border-bottom-width: 2.5px;
+  border-radius: 6px;
+  /* transition: all 0.3s ease; */
+}
+
+.wrapper{
+  /* margin-top: 20px; */
+  position: relative;
+  /* max-width: 800px;
+  width: 100%; */
+  /* width:1000px; */
+  background: #fff;
+  /* background-color:red; */
+  padding: 34px 34px 10px 34px;
+  border-radius: 6px;
+  box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+}
+
+
+#footerul{
+	list-style: none;
+	display: flex;
+	text-align: center;
+	justify-content:center;
+	padding: 0px;
+	margin: 0px;
+	font-weight: bold;
+	/* font-style: italic; */
+}
+#footerul li{
+	padding: 2px;
+}
+
+.selectedPgae{
+	font-size:1.3em;
+	font-style: italic; 
+}
+
+
+/*********************************************************************************/
+/* Table Design                                                                        */
+/*********************************************************************************/
+
+#anrtable{
+	
+	width:100%;
+	/* height:100%; */	
+	/* table-layout:auto; */
+	border-collapse: separate;
+	border-spacing: 0;
+	border-radius: 10px; 
+}
+
+.noRecord{
+	
+	font-size: 16px;
+	font-weight: bold;
+	text-align: center;
+}
+
+#anrtable th {
+  
+  top: 0;
+  position: sticky;
+  /* background-color: #1C2833; */
+  background-color: #2eb8b8;
+  color: #FFFFFF;
+
+}
+#anrtable th, td {
+  padding: 10px;
+  /* border: 1px solid #01070D; */
+  border: 1px solid #57687A;
+}
+
+
+#anrtable tbody tr:nth-child(even) {
+  /* background-color: #909497; */
+    background-color: #e8ffff;
+}
+
+#anrtable tbody tr:nth-child(odd) {
+  /* background-color: #CACFD2; */
+  background-color: white;
+}
+
+/* required css to make rounded table (below) */
+#anrtable thead tr:first-child th:first-child {
+  border-top-left-radius: 10px;
+}
+#anrtable thead tr:first-child th:last-child {
+  border-top-right-radius: 10px;
+}
+#anrtable tbody tr:last-child td:first-child {
+  border-bottom-left-radius: 10px;
+}
+#anrtable tbody tr:last-child td:last-child {
+  border-bottom-right-radius: 10px;
+}
+
+tfoot td{
+	border: none;
+}
+
+
+/*********************************************************************************/
+/* Modal View                                                                        */
+/*********************************************************************************/
+
+.modal {
+	display: none; /* Hidden by default */
+	position: fixed; /* Stay in place */
+	z-index: 10; /* Sit on top */
+	left: 0;
+	top: 0;
+	width: 100%; /* Full width */
+	height: 100%; /* Full height */
+	background-color: rgba(0, 0, 0, 0.5); /* Black w/ opacity */
+}
+
+.modal-content {
+	background-color: #fefefe;
+	margin: 10% auto; /* 15% from the top and centered */
+	padding: 20px;
+	border: 1px solid #888;
+	width: 40%; /* Could be more or less, depending on screen size */
+	border-radius: 10px;
+}
+
+.close {
+	color: #aaa;
+	float: right;
+	font-size: 28px;
+	font-weight: bold;
+}
+
+.close:hover, .close:focus {
+	color: black;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+
+/*********************************************************************************/
+/* Modal View Table                                                                      */
+/*********************************************************************************/
+
+#formtable  td {
+	border: none;
+	margin: 0px;
+	/* padding: 0px; */
+	padding-top: 0px;
+	padding-bottom: 0px;
+}
+div label{
+	font-weight: bold;
+}
