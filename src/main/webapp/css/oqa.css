@@ -1,0 +1,156 @@
+@charset "UTF-8";
+
+
+
+
+table {
+	
+	width: 100%;
+	margin-top: 20px;	
+	/* border: none; */
+	border-collapse: separate;
+	border-spacing: 0;
+
+}
+td{
+	/* text-align: center; */
+	border: none;
+	border-collapse: separate;
+	text-transform:uppercase; 
+	
+}
+
+/* 
+#tableqtrposition th{
+	color: blue;
+}
+
+#tablelist th{
+	color: red;
+}
+ */
+ 
+ .common-input{
+  
+  /* height: 52px; */
+  height: 40px;
+  width: 100%;
+  outline: none;
+  margin-top:2px;
+/*   margin-bottom:5px;
+ */
+  /* padding: 0 15px; */
+  font-size: 17px;
+  font-weight: 400;
+  color: #333;
+  border: 1.5px solid #C7BEBE;
+  border-bottom-width: 2.5px;
+  border-radius: 6px;
+  /* transition: all 0.3s ease; */
+}
+
+.tdcontainer{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+/*********************************************************************************/
+/* Table Design                                                                        */
+/*********************************************************************************/
+th {
+  
+  top: 0;
+  position: sticky;
+  /* background-color: #1C2833; */
+  background-color: #2eb8b8;
+  color: #FFFFFF;
+
+}
+th, td {
+  padding: 10px;
+  /* border: 1px solid #01070D; */
+  border: 1px solid #57687A;
+}
+
+
+#tableqtrposition tbody tr:nth-child(even), #tablelist tbody tr:nth-child(even) {
+  background-color: #e8ffff;
+}
+
+#tableqtrposition tbody tr:nth-child(odd), #tablelist tbody tr:nth-child(odd) {
+  /* background-color: #CACFD2; */
+  background-color: white;
+}
+
+/* required css to make rounded table (below) */
+tr:first-child th:first-child {
+  border-top-left-radius: 10px;
+}
+tr:first-child th:last-child {
+  border-top-right-radius: 10px;
+}
+tr:last-child td:first-child {
+  border-bottom-left-radius: 10px;
+}
+tr:last-child td:last-child {
+  border-bottom-right-radius: 10px;
+}
+
+/*********************************************************************************/
+/* Modal View                                                                        */
+/*********************************************************************************/
+
+.modal {
+	display: none; /* Hidden by default */
+	position: fixed; /* Stay in place */
+	z-index: 10; /* Sit on top */
+	left: 0;
+	top: 0;
+	width: 100%; /* Full width */
+	height: 100%; /* Full height */
+	background-color: rgba(0, 0, 0, 0.5); /* Black w/ opacity */
+}
+
+.modal-content {
+	background-color: #fefefe;
+	margin: 5% auto; /* 15% from the top and centered */
+	padding: 20px;
+	border: 1px solid #888;
+	width: 25%; /* Could be more or less, depending on screen size */
+	border-radius: 10px;
+}
+
+.close {
+	color: #aaa;
+	float: right;
+	font-size: 28px;
+	font-weight: bold;
+}
+
+.close:hover, .close:focus {
+	color: black;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+
+/*********************************************************************************/
+/* Modal View Table                                                                      */
+/*********************************************************************************/
+
+#formtable  td {
+	border: none;
+	margin: 0px;
+	/* padding: 0px; */
+}
+
+label{
+	font-weight: bold;
+}
+
+#statuspara{
+	
+	text-transform: none;
+}
+

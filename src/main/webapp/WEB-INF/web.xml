@@ -1,0 +1,60 @@
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app>
+  <display-name>Archetype Created Web Application</display-name>
+   <session-config>
+        <session-timeout>30</session-timeout> <!-- in minutes -->
+   </session-config>
+  <servlet>
+  	<servlet-name>AnrServlet</servlet-name>
+  	<display-name>AnrServlet</display-name>
+  	<description></description>
+  	<servlet-class>AnrServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>ExternalDocument</servlet-name>
+  	<display-name>ExternalDocument</display-name>
+  	<description></description>
+  	<servlet-class>ExternalDocument</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>GmiServlet</servlet-name>
+  	<display-name>GmiServlet</display-name>
+  	<description></description>
+  	<servlet-class>GmiServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>ChangeLanguageServlet</servlet-name>
+  	<display-name>ChangeLanguageServlet</display-name>
+  	<description></description>
+  	<servlet-class>ChangeLanguageServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>OqaServlert</servlet-name>
+  	<display-name>OqaServlert</display-name>
+  	<description></description>
+  	<servlet-class>OqaServlert</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>AnrServlet</servlet-name>
+  	<url-pattern>/AnrServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>ExternalDocument</servlet-name>
+  	<url-pattern>/ExternalDocument</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>GmiServlet</servlet-name>
+  	<url-pattern>/GmiServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>ChangeLanguageServlet</servlet-name>
+  	<url-pattern>/ChangeLanguageServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>OqaServlert</servlet-name>
+  	<url-pattern>/OqaServlert</url-pattern>
+  </servlet-mapping>
+</web-app>

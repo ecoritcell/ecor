@@ -1,0 +1,29 @@
+@charset "UTF-8";
+
+html,body{
+	padding: 0px;
+	margin: 0px;
+}
+
+#tablereport{
+	margin-top: 20px;
+}
+
+ul {
+	padding: 0px;
+	margin: 0px;
+}
+
+li{
+	padding: 4px;
+	font-size: 1.3em;
+}
+a{
+	text-decoration: none;
+}
+
+#report{
+	padding: 0px;
+	margin: 0px;
+	text-decoration: underline;
+}

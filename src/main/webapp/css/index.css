@@ -1,0 +1,325 @@
+@charset "UTF-8";
+
+/* html, body {
+	height: 100%;
+	box-sizing: border-box;
+}
+ */
+
+
+/*********************************************************************************/
+/* MAIN MENU                                                                 */
+/*********************************************************************************/
+#menu-wrapper
+{
+	background: #16a085;
+	display: flex;
+	justify-content: center;
+	vertical-align: middle;	
+}
+
+#divsearch{
+	display: flex;
+	flex-direction: column;
+	vertical-align: middle;
+	text-align: left;
+	justify-content: center;
+	margin-left: 10px;
+}
+#divsearch p{
+	padding: 0px;
+	margin: 0px;
+	color: white;
+	font-style: italic;
+	font-size: 1.3em;
+}
+
+.highlight {
+	background-color: yellow;
+}
+/* #menu{
+	background-color: yellow;
+} */
+
+#menu ul {
+	margin: 0;
+	padding: 0px 0px 0px 0px;
+	list-style: none;
+	line-height: normal;	
+	text-align: left;
+	
+}
+
+#menu  li {
+	display: inline-block;
+	text-align: left;
+	
+}
+
+
+
+#menu a {
+	/* display: block; */
+	letter-spacing: 1px;
+	padding: 0px 40px;
+	text-decoration: none;
+	/* text-align: center; */
+	text-transform: uppercase;
+	/* font-size: 0.80em; */
+	font-size: 1.3em;
+	/* line-height: 100px; */
+	line-height: 50px;
+	border: none;
+	color: #FFF;
+	text-align: left;		
+}
+
+
+/*********************************************************************************/
+/* DROPDOWN MENU                                                                 */
+/*********************************************************************************/
+.dropdown{
+	position: relative;
+	/* display: inline-block; */
+}
+
+#menu .submenu li {
+	display: block;
+}
+/* Dropdown Content (Hidden by Default) */
+.submenu{
+
+	display: none;
+	position: absolute;
+	/* background-color: #f1f1f1; */
+	background-color: #1abc9c;
+	/* min-width: none; */
+	/* overflow: auto; */
+	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+	z-index: 1;
+}
+
+/* Links inside the dropdown */
+#menu .submenu a {
+	padding: 0px 0px 0px 10px;
+	/* padding: 12px 16px; */
+	letter-spacing: 1px;
+	line-height: 30px;
+	/* font-size: 1em; */
+	font-size: 14px;
+	border: none;
+	color: #FFF;
+	text-decoration: none;
+	display: block;
+	min-width: 180px;
+	text-align: left;
+  }
+
+  /* Change color of dropdown links on hover */
+.submenu a:hover {
+	background-color: #759b7f;
+}
+
+/* Show the dropdown menu on hover */
+#menu li:hover .submenu{	
+	display: block;
+}
+
+#parentmenu li:hover{
+
+	background: #1abc9c;
+	/* font-weight: bold; */
+	
+	
+}
+
+/*********************************************************************************/
+/* END OF DROPDOWN MENU                                                                 */
+/*********************************************************************************/
+
+
+/*********************************************************************************/
+/* IMAGE SCROLLING                                                               */
+/*********************************************************************************/
+#divimage{
+		/* box-shadow: 0 8px 12px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); */
+		box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;	
+}
+#divimagecontainer{
+
+	height: 250px;
+	width: 100%;
+	background-size:cover;
+	background-image:url('../images/railsadan6.jpg');
+	animation-name: mymove;
+  	animation-duration: 50s;
+  	animation-iteration-count: infinite;
+  	animation-timing-function: ease-in-out;  	
+  	border-bottom-width: 2.5px;
+  	border-radius: 6px;
+}
+
+@keyframes mymove {
+  0%   {background-image:url('../images/railsadan6.jpg');}
+  15%  {background-image:url('../images/railsadan5.jpg');}
+  30%  {background-image:url('../images/railsadan4.jpg');}
+  45%  {background-image:url('../images/railsadan3.jpg');}
+  60%  {background-image:url('../images/railsadan2.jpg');}
+  75%  {background-image:url('../images/railsadan1.jpg');}
+  90%  {background-image:url('../images/railsadan1.jpg');}
+  100% {background-image:url('../images/railsadan6.jpg');}
+}
+
+
+/*********************************************************************************/
+/* TABLE DESIGN                                                                  */
+/*********************************************************************************/
+#main-table{	
+	margin: 0px auto;
+	width: 100%; 
+	
+}
+
+.subtabledesign{
+	width: 100%;
+}
+
+.divheaderDesign{
+
+	color:white;
+	/* height:40px; */
+	line-height:40px;
+    font-weight:bold;
+    background: #005e8a;
+    border-radius: 6px;
+    width: 100%;
+    text-align: center;
+    margin: 0px;
+    /* padding: 10px; */
+}
+
+.divdesign{
+  
+  background-color: white;
+  border: 1.5px solid #C7BEBE;
+  border-bottom-width: 2.5px;
+  border-radius: 6px;
+  box-sizing: border-box;
+  padding: 5px;
+  width: 100%;
+}
+
+
+
+td {
+	/* border: 1px solid black; */
+	vertical-align: top;
+}
+
+.myul li{
+	
+	/* font-family: 'Raleway', sans-serif; */
+	font-size: 14pt;
+	font-weight: 400;
+	color: blue;
+	padding: 2px;
+	
+	
+}
+.myul li a{
+	text-decoration: none;
+}
+
+.myulsocialmedia{
+	list-style: none;
+	display: flex;
+	justify-content: center;
+	padding: 0px;
+	margin: 0px;
+}
+
+.myulsocialmedia li{
+	padding: 10px;
+}
+
+/*********************************************************************************/
+/* Modal View                                                                        */
+/*********************************************************************************/
+
+.modal {
+	display: none; /* Hidden by default */
+	position: fixed; /* Stay in place */
+	z-index: 10; /* Sit on top */
+	left: 0;
+	top: 0;
+	width: 100%; /* Full width */
+	height: 100%; /* Full height */
+	background-color: rgba(0, 0, 0, 0.5); /* Black w/ opacity */
+}
+
+.modal-content {
+	background-color: #fefefe;
+	margin: 10% auto; /* 15% from the top and centered */
+	padding: 20px;
+	border: 1px solid #888;
+	width: 20%; /* Could be more or less, depending on screen size */
+	border-radius: 10px;
+}
+
+.close {
+	color: #aaa;
+	float: right;
+	font-size: 28px;
+	font-weight: bold;
+}
+
+.close:hover, .close:focus {
+	color: black;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+
+/*********************************************************************************/
+/* Modal View Table                                                                      */
+/*********************************************************************************/
+#formtable{
+	width: 100%;
+	
+}
+
+#formtable  td {
+	/* border: none; */
+	margin: 0px;
+	/* padding: 0px; */
+}
+
+.common-input{
+  
+  /* height: 52px; */
+  height: 35px;
+  width: 100%;
+  outline: none;
+  margin-top:5px;
+/*   margin-bottom:5px;
+ */
+  /* padding: 0 15px; */
+  font-size: 15px;
+  font-weight: 400;
+  color: #333;
+  border: 1.5px solid #C7BEBE;
+  border-bottom-width: 2.5px;
+  border-radius: 6px;
+  /* transition: all 0.3s ease; */
+}
+
+div label{
+	font-weight: bold;
+}
+
+.requiredDesign{
+	color: red;
+	font: bold;
+}
+
+
