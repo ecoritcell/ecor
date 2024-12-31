@@ -221,6 +221,7 @@
 									<li><a href="gminspection.jsp" target="_blank"> <fmt:message key="gminspreport" /> </a></li>
 									<li><a href="jpo.jsp" target="_blank"><fmt:message key="jpo" /> </a> </li>		
 									<li><a href="oqa.jsp" target="_blank"><fmt:message key="officersqtrallotment" /></a></li>
+									<li><a href="#" ><fmt:message key="transfer&postingorder" /></a></li>
 									<li><a href="gmanr.jsp" target="_blank"><fmt:message key="gmanr" /></a> </li>
 									<li><a href="https://eastcoastrail.indianrailways.gov.in/view_section.jsp?lang=0&id=0,5,1078" target="_blank"><fmt:message key="ecornb" /></a></li>
 									<li><a href="disastermgmt.jsp" target="_blank"> <fmt:message key="disastermgmt" /> </a> </li>															

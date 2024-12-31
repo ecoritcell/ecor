@@ -1,18 +1,8 @@
 package customclasses;
 
 import java.io.File;
-import java.sql.Connection;
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.time.ZoneId;
-import java.time.format.DateTimeFormatter;
 import java.util.Date;
-import java.util.Locale;
-import java.util.ResourceBundle;
-
-import com.google.errorprone.annotations.CanIgnoreReturnValue;
-
-import java.util.Locale;
 
 public class AppConfig {
 	
@@ -119,57 +109,27 @@ public class AppConfig {
 	
 	public static void establishConnection()
 	{
-		Connection con = DBConnect.getConnection();
+		 DBConnect.getConnection();
 	}
 	
-	public static String getFileNameForItemId(String itemid)	
-	{
-		String filename = "oqa";
-		if(itemid.equalsIgnoreCase("1001"))
-			filename = "HOUSING-POLICY";
-		else if (itemid.equalsIgnoreCase("1002")) 
-			filename = "RETENTION-PROVISION";
-		else if (itemid.equalsIgnoreCase("1003")) 
-			filename = "QUARTERS-IN-BBS";
-		else if (itemid.equalsIgnoreCase("1004")) 
-			filename = "REGISTRATION-FORM";
-		else if (itemid.equalsIgnoreCase("1005")) 
-			filename = "Rail-Kunj-Flat";
-		else if (itemid.equalsIgnoreCase("1006")) 
-			filename = "Rail-Kunj-Duplex";
-		else if (itemid.equalsIgnoreCase("1007")) 
-			filename = "Rail-Kutir";
-		else if (itemid.equalsIgnoreCase("1008")) 
-			filename = "Rail-Vihar-B-Type";
-		else if (itemid.equalsIgnoreCase("1009")) 
-			filename = "Rail-Vihar-C-Type";
-		else if (itemid.equalsIgnoreCase("1010")) 
-			filename = "Rail-Kunj-Type-VI";		
-		else if (itemid.equalsIgnoreCase("1011")) 
-			filename = "Rail-Kunj-Type-V";
-		else if (itemid.equalsIgnoreCase("1012")) 
-			filename = "Rail-Kunj-Type-IV-Spl";
-		else if (itemid.equalsIgnoreCase("1013")) 
-			filename = "Rail-Kutir-Type-V";
-		else if (itemid.equalsIgnoreCase("1014")) 
-			filename = "Rail-Vihar-B-Type";
-		else if (itemid.equalsIgnoreCase("1015")) 
-			filename = "Rail-Vihar-C-Type";
-		else if (itemid.equalsIgnoreCase("1016")) 
-			filename = "Transit-Flat";
-		else if (itemid.equalsIgnoreCase("1017")) 
-			filename = "JS-SS";
-		else if (itemid.equalsIgnoreCase("1018")) 
-			filename = "JAG-SG";
-		else if (itemid.equalsIgnoreCase("1019")) 
-			filename = "SAG-NF-HAG";
-		else if (itemid.equalsIgnoreCase("1020")) 
-			filename = "HAG";
-		else if (itemid.equalsIgnoreCase("1021")) 
-			filename = "RETENTION-LIST";
-		
-		
-		
-		return filename;
-	}
+	
+	public static String getLastUpdateDate() {
+	
+		System.out.println("getLastUpdateDate called");
+		  String lastUpdatedDateString = "";
+		  try {
+			
+			  OqaUpdateDAO objOqaDao = new OqaUpdateDAO();
+			  lastUpdatedDateString = objOqaDao.getLastUpdatedDate();	
+
+			  
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.out.println(e.toString());
+		}
+		  
+		  return lastUpdatedDateString;
+	  
+	  }	 
+	
 }

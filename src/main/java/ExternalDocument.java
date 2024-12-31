@@ -60,7 +60,10 @@ public class ExternalDocument extends HttpServlet {
 		            outputStream.close();
 		        } else {
 		            // If the file is not found, send a 404 response
-		            response.sendError(HttpServletResponse.SC_NOT_FOUND, "File not found");
+		        	
+		        	response.sendRedirect("error.jsp");
+		        	
+					/* response.sendError(HttpServletResponse.SC_NOT_FOUND, "File not found"); */
 		        }
 		 	}
 		 	else {

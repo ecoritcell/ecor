@@ -15,6 +15,7 @@ public class DBConnect {
 			{
 				ConfigLoader config = new ConfigLoader();
 				String islive = config.getProperty("islive");
+				String isRemoteDatabse = config.getProperty("isRemoteDatabase");
 				String url = "";
 				String username = "";
 				String password = "";
@@ -22,7 +23,14 @@ public class DBConnect {
 					url = config.getProperty("db.live.url");
 					username = config.getProperty("db.live.username");
 					password = config.getProperty("db.live.password");
-				}else {
+					
+				}else if (isRemoteDatabse.equalsIgnoreCase("YES")) {
+					
+					url = config.getProperty("db.remote.url");
+					username = config.getProperty("db.remote.username");
+					password = config.getProperty("db.remote.password");
+				}				
+				else {
 					
 					url = config.getProperty("db.local.url");
 					username = config.getProperty("db.local.username");

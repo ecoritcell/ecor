@@ -1,3 +1,4 @@
+<%@page import="customclasses.AppConfig"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -28,7 +29,7 @@
 				<table id="tableqtrposition">
 				<thead>
 					<tr>
-					<th colspan="4"> POSITION LAST UPDATED ON:-14/11/2024</th>
+					<th colspan="4"> POSITION LAST UPDATED ON: <span id='lastUpdatedSpan' style="font-style: italic;"> hi </span> </th>
 					</tr>
 				</thead>
 				
@@ -36,25 +37,25 @@
 					<tr>
 					<td> 
 						<div class="tdcontainer"> 
-							<a href="ExternalDocument?type=2&name=HOUSING-POLICY.pdf" target="_blank"> HOUSING POLICY </a> 
+							<a href="ExternalDocument?type=2&name=1001.pdf" target="_blank"> HOUSING POLICY </a> 
 							<a onclick="editIconClicked('1001')"><img class="editImageClass" alt="" style="width: 20px;height: 20px;" src="images/pencil_icon2.png"> </a>
 						</div>	 
 					</td>
 					<td>
 						<div class="tdcontainer"> 
-							<a href="ExternalDocument?type=2&name=RETENTION-PROVISION.pdf" target="_blank"> RETENTION PROVISION </a> 
+							<a href="ExternalDocument?type=2&name=1002.pdf" target="_blank"> RETENTION PROVISION </a> 
 							<a onclick="editIconClicked('1002')"><img class="editImageClass" alt="" style="width: 20px;height: 20px;" src="images/pencil_icon2.png"> </a>
 						</div>	
 					</td>
 					<td>
 						<div class="tdcontainer"> 
-							<a href="ExternalDocument?type=2&name=QUARTERS-IN-BBS.pdf" target="_blank"> QUARTERS IN BBS [LOCATIONS,TYPE & NOS.] </a> 
+							<a href="ExternalDocument?type=2&name=1003.pdf" target="_blank"> QUARTERS IN BBS [LOCATIONS,TYPE & NOS.] </a> 
 							<a onclick="editIconClicked('1003')"><img class="editImageClass" alt="" style="width: 20px;height: 20px;" src="images/pencil_icon2.png"> </a>
 						</div>							
 					</td>
 					<td>
 						<div class="tdcontainer"> 
-							<a href="ExternalDocument?type=2&name=REGISTRATION-FORM.pdf" target="_blank">REGISTRATION FORM</a> 
+							<a href="ExternalDocument?type=2&name=1004.pdf" target="_blank">REGISTRATION FORM</a> 
 							<a onclick="editIconClicked('1004')"><img class="editImageClass" alt="" style="width: 20px;height: 20px;" src="images/pencil_icon2.png"> </a>
 						</div>
 					</td>
@@ -66,7 +67,8 @@
 				
 				<table id="tablelist">
 				<tr>
-					<th>OCCUPATION LISTS</th>
+					<th>OCCUPATION LISTS - RAIL KUNJ</th>
+					<th>OCCUPATION LISTS - OTHERS</th>
 					<th>WAITING LISTS</th>
 					<th>OTHER INFORMATION</th>
 				</tr>
@@ -74,154 +76,95 @@
 					<tr>
 					<td>
 						<div class="tdcontainer"> 
-							<a href="ExternalDocument?type=2&name=Rail-Kunj-Flat.pdf" target="_blank">Rail Kunj (Flat)</a> 
+							<a href="ExternalDocument?type=2&name=1005.pdf" target="_blank">Rail Kunj (Type-VI)</a> 
 							<a onclick="editIconClicked('1005')"><img class="editImageClass" alt="" style="width: 20px;height: 20px;" src="images/pencil_icon2.png"> </a>
 						</div>	
 					</td>
+					
 					<td>
 						<div class="tdcontainer"> 
-							<a href="ExternalDocument?type=2&name=JS-SS.pdf" target="_blank">JS/SS</a> 
-							<a onclick="editIconClicked('1017')"><img class="editImageClass" alt="" style="width: 20px;height: 20px;" src="images/pencil_icon2.png"> </a>
-						</div>
-					</td>
-					<td>
-						<div class="tdcontainer"> 
-							<a href="ExternalDocument?type=2&name=RETENTION-LIST.pdf" target="_blank">RETENTION LIST</a> 
-							<a onclick="editIconClicked('1021')"><img class="editImageClass" alt="" style="width: 20px;height: 20px;" src="images/pencil_icon2.png"> </a>
-						</div>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<div class="tdcontainer"> 
-							<a href="ExternalDocument?type=2&name=Rail-Kunj-Duplex.pdf" target="_blank">Rail Kunj (Duplex)</a> 
+							<a href="ExternalDocument?type=2&name=1006.pdf" target="_blank">Rail Kutir (Type-v)</a> 
 							<a onclick="editIconClicked('1006')"><img class="editImageClass" alt="" style="width: 20px;height: 20px;" src="images/pencil_icon2.png"> </a>
 						</div>
+					
 					</td>
+					
 					<td>
 						<div class="tdcontainer"> 
-							<a href="ExternalDocument?type=2&name=JAG-SG.pdf" target="_blank">JAG/SG</a> 
-							<a onclick="editIconClicked('1018')"><img class="editImageClass" alt="" style="width: 20px;height: 20px;" src="images/pencil_icon2.png"> </a>
-						</div>
-					</td>
-					<td><a></a></td>
-				</tr>
-				<tr>
-				
-					<td>
-						<div class="tdcontainer"> 
-							<a href="ExternalDocument?type=2&name=Rail-Kutir.pdf" target="_blank">Rail Kutir</a> 
+							<a href="ExternalDocument?type=2&name=1007.pdf" target="_blank">SAG and Above</a> 
 							<a onclick="editIconClicked('1007')"><img class="editImageClass" alt="" style="width: 20px;height: 20px;" src="images/pencil_icon2.png"> </a>
 						</div>
 					</td>
-					<td>
-						<div class="tdcontainer"> 
-							<a href="ExternalDocument?type=2&name=SAG-NF-HAG.pdf" target="_blank">SAG/NF-HAG</a> 
-							<a onclick="editIconClicked('1019')"><img class="editImageClass" alt="" style="width: 20px;height: 20px;" src="images/pencil_icon2.png"> </a>
-						</div>					
-					</td>
-					<td><a></a></td>
 					
-				</tr>
-				<tr>
 					<td>
 						<div class="tdcontainer"> 
-							<a href="ExternalDocument?type=2&name=Rail-Vihar-B-Type.pdf" target="_blank">Rail Vihar (B Type)</a> 
+							<a href="ExternalDocument?type=2&name=1008.pdf" target="_blank">RETENTION LIST</a> 
 							<a onclick="editIconClicked('1008')"><img class="editImageClass" alt="" style="width: 20px;height: 20px;" src="images/pencil_icon2.png"> </a>
 						</div>
 					</td>
-					
-					<td>
-						<div class="tdcontainer"> 
-							<a href="ExternalDocument?type=2&name=HAG.pdf" target="_blank">HAG</a> 
-							<a onclick="editIconClicked('1020')"><img class="editImageClass" alt="" style="width: 20px;height: 20px;" src="images/pencil_icon2.png"> </a>
-						</div>
-					
-					</td>
-					<td><a href="#" target="_blank"></a></td>
 				</tr>
 				<tr>
 					<td>
 						<div class="tdcontainer"> 
-							<a href="ExternalDocument?type=2&name=Rail-Vihar-C-Type.pdf" target="_blank">Rail Vihar (C Type)</a> 
+							<a href="ExternalDocument?type=2&name=1009.pdf" target="_blank">Rail Kunj (Type-V, Flat)</a> 
 							<a onclick="editIconClicked('1009')"><img class="editImageClass" alt="" style="width: 20px;height: 20px;" src="images/pencil_icon2.png"> </a>
 						</div>
-					
 					</td>
-					<td><a></a></td>
-					<td><a></a></td>
-				</tr>
-				<tr>
 					<td>
 						<div class="tdcontainer"> 
-							<a href="ExternalDocument?type=2&name=Rail-Kunj-Type-VI.pdf" target="_blank">Rail Kunj (Type-VI)</a> 
+							<a href="ExternalDocument?type=2&name=1010.pdf" target="_blank">Rail Vihar (B-Type)</a> 
 							<a onclick="editIconClicked('1010')"><img class="editImageClass" alt="" style="width: 20px;height: 20px;" src="images/pencil_icon2.png"> </a>
 						</div>
 					</td>
-					<td><a></a></td>
-					<td><a></a></td>
-				</tr>
-				<tr>
 					<td>
 						<div class="tdcontainer"> 
-							<a href="ExternalDocument?type=2&name=Rail-Kunj-Type-V.pdf" target="_blank">Rail Kunj (Type-V)</a> 
+							<a href="ExternalDocument?type=2&name=1011.pdf" target="_blank">JAG/SG</a> 
 							<a onclick="editIconClicked('1011')"><img class="editImageClass" alt="" style="width: 20px;height: 20px;" src="images/pencil_icon2.png"> </a>
 						</div>
 					</td>
 					<td><a></a></td>
-					<td><a></a></td>
 				</tr>
-				<tr>
+				
+				<tr>				
 					<td>
 						<div class="tdcontainer"> 
-							<a href="ExternalDocument?type=2&name=Rail-Kunj-Type-IV-Spl.pdf" target="_blank">Rail Kunj (Type-IV Spl.)</a> 
+							<a href="ExternalDocument?type=2&name=1012.pdf" target="_blank">Rail Kunj (Type-V, Duplex)</a> 
 							<a onclick="editIconClicked('1012')"><img class="editImageClass" alt="" style="width: 20px;height: 20px;" src="images/pencil_icon2.png"> </a>
 						</div>
 					</td>
-					<td><a></a></td>
-					<td><a></a></td>
-				</tr>
-				<tr>
 					<td>
 						<div class="tdcontainer"> 
-							<a href="ExternalDocument?type=2&name=Rail-Kutir-Type-V.pdf" target="_blank">Rail Kutir (Type-V)</a> 
+							<a href="ExternalDocument?type=2&name=1013.pdf" target="_blank">Rail Vihar (C-Type)</a> 
 							<a onclick="editIconClicked('1013')"><img class="editImageClass" alt="" style="width: 20px;height: 20px;" src="images/pencil_icon2.png"> </a>
 						</div>
 					</td>
-						
+					
+					<td>
+						<div class="tdcontainer"> 
+							<a href="ExternalDocument?type=2&name=1014.pdf" target="_blank">JS/SS</a> 
+							<a onclick="editIconClicked('1014')"><img class="editImageClass" alt="" style="width: 20px;height: 20px;" src="images/pencil_icon2.png"> </a>
+						</div>					
+					</td>
 					<td><a></a></td>
-					<td><a></a></td>
+					
 				</tr>
 				<tr>
 					<td>
 						<div class="tdcontainer"> 
-							<a href="ExternalDocument?type=2&name=Rail-Vihar-B-Type.pdf" target="_blank">Rail Vihar (B-Type)</a> 
-							<a onclick="editIconClicked('1014')"><img class="editImageClass" alt="" style="width: 20px;height: 20px;" src="images/pencil_icon2.png"> </a>
+							<a href="ExternalDocument?type=2&name=1015.pdf" target="_blank">Rail Kunj (Type-IV, Spl)</a> 
+							<a onclick="editIconClicked('1015')"><img class="editImageClass" alt="" style="width: 20px;height: 20px;" src="images/pencil_icon2.png"> </a>
+						</div>						
+					</td>
+					<td>
+						<div class="tdcontainer"> 
+							<a href="ExternalDocument?type=2&name=1016.pdf" target="_blank">MCS Area (Type-IV,V)</a> 
+							<a onclick="editIconClicked('1016')"><img class="editImageClass" alt="" style="width: 20px;height: 20px;" src="images/pencil_icon2.png"> </a>
 						</div>
 					</td>
-					<td><a></a></td>
-					<td><a></a></td>
+					<td><a href="#" target="_blank"></a></td>
+					<td><a href="#" target="_blank"></a></td>
 				</tr>
-				<tr>
-					<td>
-						<div class="tdcontainer"> 
-							<a href="ExternalDocument?type=2&name=Rail-Vihar-C-Type.pdf" target="_blank">Rail Vihar (C-Type)</a> 
-							<a onclick="editIconClicked('1015')"><img class="editImageClass" alt="" style="width: 20px;height: 20px;" src="images/pencil_icon2.png"> </a>
-						</div>					
-					</td>
-					<td><a></a></td>
-					<td><a></a></td>
-				</tr>
-				<tr>
-					<td>
-						<div class="tdcontainer"> 
-							<a href="ExternalDocument?type=2&name=Transit-Flat.pdf" target="_blank">Transit Flat</a> 
-							<a onclick="editIconClicked('1016')"><img class="editImageClass" alt="" style="width: 20px;height: 20px;" src="images/pencil_icon2.png"> </a>
-						</div>					
-					</td>
-					<td><a></a></td>
-					<td><a></a></td>
-				</tr>
+				
 				</tbody>
 				
 
@@ -251,26 +194,19 @@
 								<option value="1003">QUARTERS IN BBS [LOCATIONS,TYPE & NOS.]</option>
 								<option value="1004">REGISTRATION FORM</option>
 								
-								<option value="1005">Rail Kunj (Flat)</option>
-								<option value="1006">Rail Kunj (Duplex)</option>
-								<option value="1007">Rail Kutir</option>
-								<option value="1008">Rail Vihar (B-Type)</option>
+								<option value="1005">Rail Kunj (Type-VI)</option>
+								<option value="1006">Rail Kutir (Type-v)</option>
+								<option value="1007">SAG and Above</option>
+								<option value="1008">RETENTION LIST</option>
 								
-								<option value="1009">Rail Vihar (C-Type)</option>
-								<option value="1010">Rail Kunj (Type-VI)</option>
-								<option value="1011">Rail Kunj (Type-V)</option>
-								<option value="1012">Rail Kunj (Type-IV Spl.)</option>
-								<option value="1013">Rail Kutir (Type-V)</option>
-								<option value="1014">Rail Vihar (B-Type)</option>
-								<option value="1015">Rail Vihar (C-Type)</option>
-								<option value="1016">Transit Flat</option>
-								
-								<option value="1017">JS/SS</option>
-								<option value="1018">JAG/SG</option>
-								<option value="1019">SAG/NF-HAG</option>
-								<option value="1020">HAG</option>
-								
-								<option value="1021">RETENTION LIST</option>
+								<option value="1009">Rail Kunj (Type-V, Flat)</option>
+								<option value="1010">Rail Vihar (B-Type)</option>
+								<option value="1011">JAG/SG</option>
+								<option value="1012">Rail Kunj (Type-V, Duplex)</option>
+								<option value="1013">Rail Vihar (C-Type)</option>
+								<option value="1014">JS/SS</option>
+								<option value="1015">Rail Kunj (Type-IV, Spl)</option>
+								<option value="1016">MCS Area (Type-IV,V)</option>
 								
 							</select>  
 							</div>
@@ -330,8 +266,18 @@ window.onclick = function(event) {
 $(document).ready(function() {		
 	
 	showHideAddEditBtn();
+	loadLastUpdatedDate();
 })
 
+
+function loadLastUpdatedDate(){
+	
+	console.log("loadLastUpdatedDate called");
+	var updatedDate = '<%=AppConfig.getLastUpdateDate()%>';
+	console.log("updatedDate = "+updatedDate);
+	var $lastUpdatedSpan = $("#lastUpdatedSpan");
+	$lastUpdatedSpan.text(updatedDate);
+}
 
 function showHideAddEditBtn(){
 
@@ -399,6 +345,8 @@ function submitClicked(){
 	
 	var $statusPara = $("#statuspara");
 	$statusPara.text("");
+	
+	var $lastUpdatedSpan = $("#lastUpdatedSpan");
 
 	var itemid = $("#dropdownlist").val().trim();
     var fileName = $("#uploaddocument").val();
@@ -431,14 +379,16 @@ function submitClicked(){
             timeout: 600000,
             success: function (data) {
 
-            	if(data = "Successfully updated")
+            	if(data != "-1")
             	{
-            		$statusPara.text (data);
+            		$statusPara.text ("Document updated successfully.");
 					$statusPara.css("color", "green");
+					$lastUpdatedSpan.text(data);
+
             	}
             	else{
             		
-            		$statusPara.text (data);
+            		$statusPara.text ("Error occured. Please try again later....");
 					$statusPara.css("color", "red");
             	}
 

@@ -20,6 +20,11 @@ td{
 	
 }
 
+SELECT{
+	text-transform: uppercase;
+	
+}
+
 /* 
 #tableqtrposition th{
 	color: blue;
