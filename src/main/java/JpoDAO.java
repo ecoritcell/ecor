@@ -39,6 +39,7 @@ public int insertNewJpo(String jposlno,String department,String deptid,String jp
 				cstmt.setString(5, filename);
 				cstmt.registerOutParameter(6, Types.INTEGER);
 				cstmt.executeUpdate();
+				
 				lastRecordId = cstmt.getInt(6);
 				 System.out.println("New Record ID: "+lastRecordId );				
 				

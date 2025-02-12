@@ -4,9 +4,7 @@
 
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
-   <session-config>
-        <session-timeout>30</session-timeout> <!-- in minutes -->
-   </session-config>
+   
   <servlet>
   	<servlet-name>AnrServlet</servlet-name>
   	<display-name>AnrServlet</display-name>
@@ -37,6 +35,12 @@
   	<description></description>
   	<servlet-class>OqaServlert</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>DirectoryServlet</servlet-name>
+  	<display-name>DirectoryServlet</display-name>
+  	<description></description>
+  	<servlet-class>DirectoryServlet</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>AnrServlet</servlet-name>
   	<url-pattern>/AnrServlet</url-pattern>
@@ -57,4 +61,13 @@
   	<servlet-name>OqaServlert</servlet-name>
   	<url-pattern>/OqaServlert</url-pattern>
   </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>DirectoryServlet</servlet-name>
+  	<url-pattern>/DirectoryServlet</url-pattern>
+  </servlet-mapping>
+  
+  <session-config>
+        <session-timeout>30</session-timeout> <!-- in minutes -->
+   </session-config>
+   
 </web-app>

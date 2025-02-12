@@ -1,0 +1,80 @@
+@charset "UTF-8";
+
+
+#parentmenu{
+	list-style: none;
+	text-transform: uppercase;
+	font-size: 1.3em;
+}
+
+#parentmenu a{
+	
+	color: white;
+}
+
+.tblelements li{
+	
+	   padding-bottom: 10px;
+}
+
+table {
+	
+	width: 100%;
+	margin-top: 20px;	
+	/* border: none; */
+	border-collapse: separate;
+	border-spacing: 0;
+	
+
+}
+td{
+	/* text-align: center; */
+	border: none;
+	border-collapse: separate;
+	/* text-transform:uppercase; */ 
+	vertical-align: top;
+	font-size: 1.2em;
+	border-style: none;
+}
+
+/*********************************************************************************/
+/* Table Design                                                                        */
+/*********************************************************************************/
+th {
+  
+  top: 0;
+  position: sticky;
+  /* background-color: #1C2833; */
+  background-color: #2eb8b8;
+  color: #FFFFFF;
+
+}
+th, td {
+  padding: 10px;
+  /* border: 1px solid #01070D; */
+  /* border: 1px solid #57687A; */
+}
+
+
+#tableqtrposition tbody tr:nth-child(even), #tablelist tbody tr:nth-child(even) {
+  background-color: #e8ffff;
+}
+
+#tableqtrposition tbody tr:nth-child(odd), #tablelist tbody tr:nth-child(odd) {
+  /* background-color: #CACFD2; */
+  background-color: white;
+}
+
+/* required css to make rounded table (below) */
+tr:first-child th:first-child {
+  border-top-left-radius: 10px;
+}
+tr:first-child th:last-child {
+  border-top-right-radius: 10px;
+}
+tr:last-child td:first-child {
+  border-bottom-left-radius: 10px;
+}
+tr:last-child td:last-child {
+  border-bottom-right-radius: 10px;
+}

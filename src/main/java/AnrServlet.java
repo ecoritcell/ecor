@@ -35,6 +35,10 @@ public class AnrServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		
+//		String realPathtoUploads = request.getSession().getServletContext().getRealPath("");
+//		System.out.println("realPathtoUploads = " +realPathtoUploads);
+
 
 		System.out.println("AnrServlet called");
 		String operation = request.getParameter("operation");

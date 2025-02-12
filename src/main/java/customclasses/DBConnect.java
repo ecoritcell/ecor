@@ -11,8 +11,18 @@ public class DBConnect {
 	{
 		try
 		{
-			if(con==null)
+			if(con !=null && !con.isValid(10)) {
+				
+				System.out.println("Connection is valid = " +con.isValid(50));
+				con.close();
+				con = null;				
+			}
+			
+			if(con ==null)
 			{
+				
+				System.out.println("Connection is null or invalid");
+				con = null;
 				ConfigLoader config = new ConfigLoader();
 				String islive = config.getProperty("islive");
 				String isRemoteDatabse = config.getProperty("isRemoteDatabase");
@@ -38,11 +48,14 @@ public class DBConnect {
 				}
 				 
 			    Class.forName("com.mysql.cj.jdbc.Driver");
-			    con = DriverManager.getConnection(url, username, password);
+			    con = DriverManager.getConnection(url, username, password);			    
 			    System.out.println("DB connection opened");
+
 			}
 			else {
+				
 				System.out.println("DB connection established");
+
 			}
 		}
 		catch (SQLException e) 

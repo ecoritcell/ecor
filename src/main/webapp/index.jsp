@@ -89,11 +89,12 @@
 							<li><a href="https://eastcoastrail.indianrailways.gov.in/view_section.jsp?lang=0&id=0,1,1208,1220" target="_blank"> Security</a></li>														
 							<li><a href="https://eastcoastrail.indianrailways.gov.in/view_section.jsp?lang=0&id=0,1,1208,1211" target="_blank"> Commercial</a></li>
 							<li><a href="https://eastcoastrail.indianrailways.gov.in/view_section.jsp?lang=0&id=0,1,1208,1215" target="_blank"> Medical</a></li>
-							<li><a href="http://10.180.2.19/signal.html" target="_blank"> Signal & Telecom</a></li>
+							<li><a href="signalandtelecom.jsp" target="_blank"> Signal & Telecom</a></li>
+							<!-- <li><a href="http://10.180.2.19/signal.html" target="_blank"> Signal & Telecom</a></li> -->
 							<li><a href="https://eastcoastrail.indianrailways.gov.in/view_section.jsp?lang=0&id=0,1,1208,1212" target="_blank"> Electrical</a></li>
 							<li><a href="https://eastcoastrail.indianrailways.gov.in/view_section.jsp?lang=0&id=0,1,1208,1216" target="_blank"> Operating</a></li>
 							<li><a href="https://eastcoastrail.indianrailways.gov.in/view_section.jsp?lang=0&id=0,1,1208,1222" target="_blank"> Stores</a></li>
-							<li><a href="http://10.180.2.19/Engineering/Engineering.html" target="_blank"> Engineering</a></li>
+							<li><a href="engineering.jsp" target="_blank"> Engineering</a></li>
 							<li><a href="https://eastcoastrail.indianrailways.gov.in/view_section.jsp?lang=0&id=0,1,1208,1217" target="_blank"> Personnel</a></li>
 							<li><a href="https://eastcoastrail.indianrailways.gov.in/view_section.jsp?lang=0&id=0,1,1208,1219" target="_blank"> Safety</a></li>
 							<li><a href="http://10.180.18.249/" target="_blank"> IT</a></li>
@@ -192,8 +193,9 @@
 									<li><a href="https://indianrailways.gov.in/" target="_blank"> <fmt:message key="irsite" /></a> </li>
 									<li><a href="https://eastcoastrail.indianrailways.gov.in/view_section.jsp?lang=0&id=0,1,285" target="_blank"><fmt:message key="ecorsysmap" /></a></li>
 									<li><a href="http://10.180.18.249/" target="_blank"><fmt:message key="itcentre" /></a> </li>
-									<li><a href="https://eastcoastrail.indianrailways.gov.in/view_section.jsp?lang=0&id=0,6,1308" target="_blank"><fmt:message key="gzngzorder" /></a> </li>
+									<%-- <li><a href="https://eastcoastrail.indianrailways.gov.in/view_section.jsp?lang=0&id=0,6,1308" target="_blank"><fmt:message key="gzngzorder" /></a> </li> --%>
 									<li><a href="https://eastcoastrail.indianrailways.gov.in/" target="_blank"><fmt:message key="ecorinternetsite" /></a> </li>
+									<li><a href="https://www.irctc.co.in/" target="_blank"><fmt:message key="irctc" /></a> </li>
 									<li><a href="https://www.indianrail.gov.in/enquiry/PNR/PnrEnquiry.html?locale=en" target="_blank"><fmt:message key="pnrenq" /></a> </li>
 									<li> <a href="https://eastcoastrail.indianrailways.gov.in/view_section.jsp?lang=0&id=0,1,1208,1218" target="_blank"> <fmt:message key="rajbhasa" /> </a> </li>									
 									<li><a href="https://eastcoastrail.indianrailways.gov.in/view_section.jsp?lang=0&id=0,1,291,1294" target="_blank"> <fmt:message key="sop" /> </a> </li>
@@ -203,6 +205,22 @@
 								
 							</td>
 						</tr>
+						
+						<tr>
+							<td>
+							<div class="divdesign">
+							<p class="divheaderDesign"><fmt:message key="socialmedia" /></p>
+							<ul class="myulsocialmedia" >
+									<li><a href="https://www.facebook.com/EASTCOASTRailway1" target="_blank"> <img alt="" src="images/facebook_logo.png"> </a></li>
+									<li><a href="https://x.com/eastcoastrail" target="_blank"> <img alt="" src="images/x_logo.png"> </a></li>
+									<li><a href="https://www.instagram.com/cproecor/" target="_blank"> <img alt="" src="images/instagram_icon.png"> </a></li>
+									<li><a href="https://www.youtube.com/channel/UC17vldSl4lN7nRKcBuKADCw" target="_blank"> <img alt="" src="images/youtube_icon.png"> </a></li>
+								</ul>
+							</div>
+								
+							</td>
+						</tr>
+						
 					</table>
 				</td>
 				<td>
@@ -221,7 +239,7 @@
 									<li><a href="gminspection.jsp" target="_blank"> <fmt:message key="gminspreport" /> </a></li>
 									<li><a href="jpo.jsp" target="_blank"><fmt:message key="jpo" /> </a> </li>		
 									<li><a href="oqa.jsp" target="_blank"><fmt:message key="officersqtrallotment" /></a></li>
-									<li><a href="#" ><fmt:message key="transfer&postingorder" /></a></li>
+									<li><a href="https://eastcoastrail.indianrailways.gov.in/view_section.jsp?lang=0&id=0,6,1308" target="_blank" ><fmt:message key="transfer&postingorder" /></a></li>
 									<li><a href="gmanr.jsp" target="_blank"><fmt:message key="gmanr" /></a> </li>
 									<li><a href="https://eastcoastrail.indianrailways.gov.in/view_section.jsp?lang=0&id=0,5,1078" target="_blank"><fmt:message key="ecornb" /></a></li>
 									<li><a href="disastermgmt.jsp" target="_blank"> <fmt:message key="disastermgmt" /> </a> </li>															
@@ -234,6 +252,56 @@
 								
 							</td>
 						</tr>
+						
+						<tr>
+							<td>
+							
+							<div class="divdesign">
+									<p class="divheaderDesign"><fmt:message key="newitem" /></p>
+									<ul class="myul">
+										<li><a href="https://igotkarmayogi.gov.in/" target="_blank"><fmt:message key="missionkarmyogi" /></a> </li>
+										<li> <a href="ExternalDocument?type=2&name=INTERCOM_DIRECTORY.pdf" target="_blank"> <fmt:message key="adminitercomdir" /> </a> </li>
+										<li><a href="ExternalDocument?type=2&name=ECoR_Wall_Calendar.pdf" target="_blank"><fmt:message key="ecorcal" /></a> </li>
+										<li><a href="https://aims.indianrailways.gov.in/ress/" target="_blank"><fmt:message key="ress" /></a> </li>									
+										<%-- <li><fmt:message key="gazoo" /></li> --%> 										
+										<%-- <li><a href="signaling.jsp" target="_blank"> <fmt:message key="ecorsip" /></a></li> --%>
+										<li><a href="stationdiagram.jsp" target="_blank"> <fmt:message key="ecorsip" /></a></li>
+										<li><a href="engineering.jsp" target="_blank"> <fmt:message key="stnyarddiagram" /></a></li>
+										<%-- <li><fmt:message key="isolatingbpofcoach" /></li> --%>									
+										<%-- <li><fmt:message key="sportsclub" /></li> --%>
+										<li><a href="https://www.sesececorlyeccs.com/" target="_blank"> <fmt:message key="cooperativebank" /></a> </li>
+										<li><a href="https://www.nfirindia.com/" target="_bkank"><fmt:message key="nfir" /></a> </li>
+										<li><a href="https://www.airfindia.org/" target="_blank"><fmt:message key="airf" /></a></li>
+										<li><a href="preventionofsh.jsp" target="_blank"><fmt:message key="pshatworkplace" /></a></li>
+										<%-- <li><fmt:message key="gbcrescue" /></li> --%>
+										<%-- <li><fmt:message key="swachhta" /></li> --%>
+										<%-- <li><a href="https://eastcoastrail.indianrailways.gov.in/view_section.jsp?lang=0&id=0,6,1335,1686" target="_blank"><fmt:message key="secretballot" /></a></li> --%>
+										<li><a href="https://eastcoastrail.indianrailways.gov.in/view_section.jsp?lang=0&id=0,7,331,1420" target="_blank"><fmt:message key="rtiauthorities" /></a></li>
+									</ul>
+							</div>
+								
+							</td>
+						</tr>
+						
+						
+					</table>
+				</td>
+				
+				<td>
+					<table class="subtabledesign">
+						<%-- <tr>
+							<td>
+								<div class="divdesign">
+									<p class="divheaderDesign"><fmt:message key="cuglink" /></p>
+									<ul class="myul">
+										<li><a href="ExternalDocument?type=2&name=CUG_GUIDELINE.pdf" target="_blank"><fmt:message key="cugguidelines" /></a> </li>
+										<li><a href="ExternalDocument?type=2&name=BROADBAND_GUIDELINE.pdf" target="_blank"><fmt:message key="broadbandguidelines" /></a> </li>									
+									</ul>
+								</div>
+							</td>
+						</tr> --%>
+						
+						
 						<tr>
 							<td>
 							<div class="divdesign">
@@ -256,6 +324,7 @@
 									<li><a href="https://pgportal.gov.in/cpgoffice/" target="_blank"> <fmt:message key="cpgram" /> </a> </li>
 									<li><a href="https://cic.gov.in/" target="_blank"> <fmt:message key="cic" /> </a></li>
 									<li><a href="https://www.ireps.gov.in/" target="_blank"> <fmt:message key="ireps" /> </a></li>
+									<li><a href="https://www.ireps.gov.in/immis/" target="_blank"> <fmt:message key="imms" /> </a></li>
 									<li><a href="https://ireps.gov.in/iMMS/logon" target="_blank"> <fmt:message key="udm" /> </a></li>
 									<li><a href="http://10.180.18.249/SIAS/" target="_blank"> <fmt:message key="sias" /> </a></li>
 									<li><a href="https://eprocure.gov.in/cppp/" target="_blank"><fmt:message key="gem" /></a> </li>
@@ -266,63 +335,7 @@
 							
 							</td>
 						</tr>
-					</table>
-				</td>
-				
-				<td>
-					<table class="subtabledesign">
-						<tr>
-							<td>
-								<div class="divdesign">
-									<p class="divheaderDesign"><fmt:message key="cuglink" /></p>
-									<ul class="myul">
-										<li><a href="ExternalDocument?type=2&name=CUG_GUIDELINE.pdf" target="_blank"><fmt:message key="cugguidelines" /></a> </li>
-										<li><a href="ExternalDocument?type=2&name=BROADBAND_GUIDELINE.pdf" target="_blank"><fmt:message key="broadbandguidelines" /></a> </li>									
-									</ul>
-								</div>
-							</td>
-						</tr>
-						<tr>
-							<td>
-							
-							<div class="divdesign">
-									<p class="divheaderDesign"><fmt:message key="newitem" /></p>
-									<ul class="myul">
-										<li><a href="https://igotkarmayogi.gov.in/" target="_blank"><fmt:message key="missionkarmyogi" /></a> </li>
-										<li> <a href="ExternalDocument?type=2&name=INTERCOM_DIRECTORY.pdf" target="_blank"> <fmt:message key="adminitercomdir" /> </a> </li>
-										<li><a href="ExternalDocument?type=2&name=ECoR_Wall_Calendar.pdf" target="_blank"><fmt:message key="ecorcal" /></a> </li>
-										<li><a href="https://aims.indianrailways.gov.in/ress/" target="_blank"><fmt:message key="ress" /></a> </li>									
-										<%-- <li><fmt:message key="gazoo" /></li> --%>										
-										<li><a href="signaling.jsp" target="_blank"> <fmt:message key="ecorsip" /></a></li>
-										<%-- <li><fmt:message key="isolatingbpofcoach" /></li> --%>									
-										<%-- <li><fmt:message key="sportsclub" /></li> --%>
-										<li><a href="https://www.sesececorlyeccs.com/" target="_blank"> <fmt:message key="cooperativebank" /></a> </li>
-										<li><a href="https://www.nfirindia.com/" target="_bkank"><fmt:message key="nfir" /></a> </li>
-										<li><a href="https://www.airfindia.org/" target="_blank"><fmt:message key="airf" /></a></li>
-										<li><a href="preventionofsh.jsp" target="_blank"><fmt:message key="pshatworkplace" /></a></li>
-										<%-- <li><fmt:message key="gbcrescue" /></li> --%>
-										<%-- <li><fmt:message key="swachhta" /></li> --%>
-										<li><a href="https://eastcoastrail.indianrailways.gov.in/view_section.jsp?lang=0&id=0,6,1335,1686" target="_blank"><fmt:message key="secretballot" /></a></li>
-										<li><a href="https://eastcoastrail.indianrailways.gov.in/view_section.jsp?lang=0&id=0,7,331,1420" target="_blank"><fmt:message key="rtiauthorities" /></a></li>
-									</ul>
-							</div>
-								
-							</td>
-						</tr>
-						<tr>
-							<td>
-							<div class="divdesign">
-							<p class="divheaderDesign"><fmt:message key="socialmedia" /></p>
-							<ul class="myulsocialmedia" >
-									<li><a href="https://www.facebook.com/EASTCOASTRailway1" target="_blank"> <img alt="" src="images/facebook_logo.png"> </a></li>
-									<li><a href="https://x.com/eastcoastrail" target="_blank"> <img alt="" src="images/x_logo.png"> </a></li>
-									<li><a href="https://www.instagram.com/cproecor/" target="_blank"> <img alt="" src="images/instagram_icon.png"> </a></li>
-									<li><a href="https://www.youtube.com/channel/UC17vldSl4lN7nRKcBuKADCw" target="_blank"> <img alt="" src="images/youtube_icon.png"> </a></li>
-								</ul>
-							</div>
-								
-							</td>
-						</tr>
+						
 					</table>
 				</td>
 			</tr>
