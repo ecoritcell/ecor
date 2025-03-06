@@ -95,14 +95,17 @@ function checkUserSession(){
 	
 	var isSessionExist = false;
 	var uname = '<%=session.getAttribute("userName")%>';
+	var module = '<%=session.getAttribute("module")%>';
 	console.log("uname - " +uname);
-	if(uname != "null"){
+	console.log("module - " +module);
+	if(uname != "null" && checkModulenameAndPageName(module)){
 		console.log("Session exist");
 		isSessionExist = true; 		
 	}else{
 		console.log("Session expired");
 		isSessionExist = false;
 	}
+	
 	
 	return isSessionExist;
 }
@@ -182,6 +185,24 @@ function btnHindiClicked(){
 		window.location.href = "index.jsp"
 			
 	  }) 
+}
+
+function checkModulenameAndPageName(modulename){
+	
+	var isModuleAndLoggedinUserSame = false;
+	if(modulename != null && modulename.length >0){
+		var path = document.location.pathname;
+		var page = path.split("/").pop();
+		
+		if((page == "appointments_meetings.jsp" || page == "tour_programme.jsp" ) && modulename =="APT"){
+			isModuleAndLoggedinUserSame = true;
+		}else if((page == "jpo.jsp" || page == "oqa.jsp" || page == "gmanr.jsp" ) && modulename =="ANR"){
+			isModuleAndLoggedinUserSame = true;
+		}
+
+	}
+	
+	return isModuleAndLoggedinUserSame;
 }
 
 

@@ -235,8 +235,8 @@
 									<li><a href="tour_programme.jsp" target="_blank"><fmt:message key="tourprogramme" /></a> </li>
 									<%-- <li><a href="http://10.180.18.249/RD/index.jsp" target="_blank"><fmt:message key="edak" /></a> </li> --%>									
 									<%-- <li><fmt:message key="rrm" /></li> --%>
-									<li><a href="gmmonmeeting.jsp" target="_blank"><fmt:message key="gmtuesdaymeeting" /></a> </li>	
-									<li><a href="gminspection.jsp" target="_blank"> <fmt:message key="gminspreport" /> </a></li>
+									<%-- <li><a href="gmmonmeeting.jsp" target="_blank"><fmt:message key="gmtuesdaymeeting" /></a> </li>	
+									<li><a href="gminspection.jsp" target="_blank"> <fmt:message key="gminspreport" /> </a></li> --%>
 									<li><a href="jpo.jsp" target="_blank"><fmt:message key="jpo" /> </a> </li>		
 									<li><a href="oqa.jsp" target="_blank"><fmt:message key="officersqtrallotment" /></a></li>
 									<li><a href="https://eastcoastrail.indianrailways.gov.in/view_section.jsp?lang=0&id=0,6,1308" target="_blank" ><fmt:message key="transfer&postingorder" /></a></li>

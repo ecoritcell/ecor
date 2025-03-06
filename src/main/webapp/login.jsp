@@ -74,13 +74,31 @@ function submitClicked(){
 	var usrname = $("#txtusername").val().trim();
 	var usrpassword = $("#txtpassword").val().trim();
 	
-	if(usrname.length <= 0)
-		alert("Enter username.");
-	else if(usrpassword.length <=0)
-		alert("Enter password.");
+	let module = "";
+	let parentpagepath =  window.opener.location.pathname;
+	if(parentpagepath.length > 0){		
+		pagename = parentpagepath.split("/").pop();
+	}
+
+
+	
+	if(usrname.length <= 0){
+		
+		$statusPara.text ("Enter username.");
+		$statusPara.css("color", "red");
+	}		
+	else if(usrpassword.length <=0){
+		$statusPara.text ("Enter password.");
+		$statusPara.css("color", "red");
+	}else if(pagename.length == 0){
+		$statusPara.text ("Some error occured in module. Please try later.");
+		$statusPara.css("color", "red");
+	}
 	else{
 				        			
-		$.get("UserServlet",{operation:"getUserDetails",username:usrname,password:usrpassword},function(response, status) {
+		$statusPara.text ("");
+		
+		$.get("UserServlet",{operation:"getUserDetails",username:usrname,password:usrpassword,pagename:pagename},function(response, status) {
 			
 			console.log("status" + status);
 	        if(response.length == 0){

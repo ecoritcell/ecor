@@ -148,6 +148,13 @@ $("#footer").load("html/footer.html");
          loadDistinctYearFromDB();
      }
  }
+
+ 
+ document.addEventListener("visibilitychange", function() {
+	  if (document.visibilityState === "visible") {
+	    location.reload(); // Reloads the page when user switches back to this tab
+	  }
+	});
  
 	$(document).ready(function() {		
 		
@@ -160,7 +167,8 @@ $("#footer").load("html/footer.html");
 
 		var btnnewanr = document.getElementById("btnaddnewanr");
 		var uname = '<%=session.getAttribute("userName")%>';
-		if(uname !='null'){			
+		var module = '<%=session.getAttribute("module")%>';
+		if(uname !='null' && module == "ANR"){			
 			btnnewanr.style.display = "block";
 		}
 		else{

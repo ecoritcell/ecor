@@ -122,7 +122,12 @@
 							<a onclick="editIconClicked('1011')"><img class="editImageClass" alt="" style="width: 20px;height: 20px;" src="images/pencil_icon2.png"> </a>
 						</div>
 					</td>
-					<td><a></a></td>
+					<td>
+						<div class="tdcontainer"> 
+							<a href="ExternalDocument?type=2&name=1017.pdf" target="_blank">Transit Accomodation</a> 
+							<a onclick="editIconClicked('1017')"><img class="editImageClass" alt="" style="width: 20px;height: 20px;" src="images/pencil_icon2.png"> </a>
+						</div>
+					</td>
 				</tr>
 				
 				<tr>				
@@ -207,6 +212,7 @@
 								<option value="1014">JS/SS</option>
 								<option value="1015">Rail Kunj (Type-IV, Spl)</option>
 								<option value="1016">MCS Area (Type-IV,V)</option>
+								<option value="1017">Transit Accomodation</option>
 								
 							</select>  
 							</div>
@@ -269,6 +275,11 @@ $(document).ready(function() {
 	loadLastUpdatedDate();
 })
 
+document.addEventListener("visibilitychange", function() {
+	  if (document.visibilityState === "visible") {
+	    location.reload(); // Reloads the page when user switches back to this tab
+	  }
+	});
 
 function loadLastUpdatedDate(){
 	
@@ -282,12 +293,13 @@ function loadLastUpdatedDate(){
 function showHideAddEditBtn(){
 
 	var uname = '<%=session.getAttribute("userName")%>';
+	var module = '<%=session.getAttribute("module")%>';
 	const editicons = document.getElementsByClassName("editImageClass");
 	
 	for (let i = 0; i < editicons.length; i++) {
 
 			const imgelements = editicons[i];
-			if (uname != 'null') {
+			if (uname != 'null' && module == "ANR") {
 
 				imgelements.style.display = "block";
 			} else {

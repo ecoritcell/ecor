@@ -184,7 +184,13 @@ var modal = document.getElementById("myModel");
      }
  }
  
-	 $(document).ready(function() {		
+ document.addEventListener("visibilitychange", function() {
+	  if (document.visibilityState === "visible") {
+	    location.reload(); // Reloads the page when user switches back to this tab
+	  }
+	});
+ 
+ $(document).ready(function() {		
 		
 		 loadDepartmentWiseJpoData("-1","1");
 		 showHideAddNewBtn();
@@ -194,7 +200,8 @@ var modal = document.getElementById("myModel");
 
 		var btnaddnew = document.getElementById("btnaddnew");
 		var uname = '<%=session.getAttribute("userName")%>';
-		if(uname !='null'){			
+		var module = '<%=session.getAttribute("module")%>';
+		if(uname !='null' && module == "ANR"){			
 			btnaddnew.style.display = "block";
 		}
 		else{

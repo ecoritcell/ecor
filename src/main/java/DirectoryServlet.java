@@ -12,6 +12,7 @@ import customclasses.ConfigLoader;
 
 import java.io.OutputStream;
 import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
 import java.io.FileInputStream;
 /**
  * Servlet implementation class DirectoryServlet
@@ -32,6 +33,7 @@ public class DirectoryServlet extends HttpServlet {
 		String div = request.getParameter("div");
 		String diagram = request.getParameter("diagram");
 		String path = request.getParameter("path");
+		//System.out.println("path = "+path);
 		
 		if(diagram == null)
 			diagram = "";
@@ -119,6 +121,46 @@ public class DirectoryServlet extends HttpServlet {
 				baseDirString = config.getProperty("live.watas.folderpath");
 			}
 			
+		}else if (diagram.equalsIgnoreCase("ZPL")) { //ZONAL POLICY LETTER
+			
+			baseDirString = config.getProperty("live.zpl.folderpath");
+			
+		}else if (diagram.equalsIgnoreCase("JPO")) { //JPO LETTER
+			
+			baseDirString = config.getProperty("live.jpo.folderpath");
+			
+		}else if (diagram.equalsIgnoreCase("RDSOPL")) { //JPO LETTER
+			
+			baseDirString = config.getProperty("live.rdsopl.folderpath");
+			
+		}else if (diagram.equalsIgnoreCase("ZONALSIGNALCIRCULAR")) { //JPO LETTER
+			
+			baseDirString = config.getProperty("live.zonalsigcir.folderpath");
+			
+		}else if (diagram.equalsIgnoreCase("TECHNICALCIRCULAR")) { //JPO LETTER
+			
+			baseDirString = config.getProperty("live.technicalcircular.folderpath");
+			
+		}else if (diagram.equalsIgnoreCase("STNSIP")) { //STATION SIP 
+			
+			if(div.equalsIgnoreCase("KUR")) {
+				baseDirString = config.getProperty("live.kursipstndiagram.folderpath"); 
+			}else if (div.equalsIgnoreCase("SBP")) {
+				baseDirString = config.getProperty("live.sbpsipstndiagram.folderpath");
+			}else if (div.equalsIgnoreCase("WAT")) {
+				baseDirString = config.getProperty("live.watsipstndiagram.folderpath");
+			}
+			
+		}else if (diagram.equalsIgnoreCase("ASSIP")) { //AUTO SIGNAL SIP 
+			
+			if(div.equalsIgnoreCase("KUR")) {
+				baseDirString = config.getProperty("live.kursipas.folderpath"); 
+			}else if (div.equalsIgnoreCase("SBP")) {
+				baseDirString = config.getProperty("live.sbpsipas.folderpath");
+			}else if (div.equalsIgnoreCase("WAT")) {
+				baseDirString = config.getProperty("live.watsipas.folderpath");
+			}
+			
 		}else {
 			
 		}
@@ -152,7 +194,8 @@ public class DirectoryServlet extends HttpServlet {
 	            if (files != null) {
 	                for (File file : files) {
 	                    String filePath = (relativePath.isEmpty() ? "" : relativePath + "/") + file.getName();
-	                  //  System.out.println("filePath = " + filePath);
+	                    filePath = URLEncoder.encode(filePath, StandardCharsets.UTF_8);
+	                    //System.out.println("filePath = " + filePath);
 	                    if (file.isDirectory()) {
 	                        out.write(("<li>&#128194 <a href='DirectoryServlet?div="+DIVISION+"&diagram="+DIAGRAM +"&path=" + filePath + "' style=\"text-decoration: none;\">" + file.getName() + "</a></li>").getBytes());
 	                    } else {

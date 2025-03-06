@@ -29,6 +29,7 @@ public class DBConnect {
 				String url = "";
 				String username = "";
 				String password = "";
+								
 				if(islive.equalsIgnoreCase("YES")) {
 					url = config.getProperty("db.live.url");
 					username = config.getProperty("db.live.username");
@@ -46,7 +47,8 @@ public class DBConnect {
 					username = config.getProperty("db.local.username");
 					password = config.getProperty("db.local.password");
 				}
-				 
+				
+				
 			    Class.forName("com.mysql.cj.jdbc.Driver");
 			    con = DriverManager.getConnection(url, username, password);			    
 			    System.out.println("DB connection opened");

@@ -45,10 +45,16 @@ public class UserServlet extends HttpServlet {
 			System.out.println("Inside opration " + operation + " block.");
 			String username = request.getParameter("username");
 			String password = request.getParameter("password");
-			if(username.length()>0 && password.length()>0) {
+			String pagename = request.getParameter("pagename");
+			System.out.println("pagename = " +pagename);
+			if(username.length()>0 && password.length()>0 && pagename.length()>0) {
+				
+				String moduleName = getModulenameFromPagename(pagename);	
+				System.out.println("moduleName = " +moduleName);
+				
 				try {
 					UserDAO  userdao = new UserDAO();
-					List<UserDO> listAll = userdao.getUserDetails(username,password);
+					List<UserDO> listAll = userdao.getUserDetails(username,password,moduleName);
 		            if(listAll.isEmpty())
 		            {
 						json = "[{\"status\":0,\"msg\":\"Enter valid username and password.\"}]";
@@ -125,4 +131,25 @@ public class UserServlet extends HttpServlet {
 	        }
 		}
 	}
+	
+	public String getModulenameFromPagename(String pagename) {
+		
+		String modulename = "";
+		if(pagename.equalsIgnoreCase("appointments_meetings.jsp"))
+			modulename = "APT";
+		else if(pagename.equalsIgnoreCase("tour_programme.jsp"))
+			modulename = "APT";
+		else if(pagename.equalsIgnoreCase("oqa.jsp"))
+			modulename = "ANR";
+		else if(pagename.equalsIgnoreCase("jpo.jsp"))
+			modulename = "ANR";
+		else if(pagename.equalsIgnoreCase("gmanr.jsp"))
+			modulename = "ANR";
+		
+		return modulename;		
+		
+	}
+	
+	
+	
 }

@@ -11,7 +11,7 @@ import java.util.List;
 import customclasses.DBConnect;
 public class UserDAO {
 
-public List<UserDO> getUserDetails(String username, String password) throws SQLException {
+public List<UserDO> getUserDetails(String username, String password, String modulename) throws SQLException {
 	
     System.out.println("UserDO getUserDetails called");
 	List<UserDO> totalList = new ArrayList<>();
@@ -24,9 +24,10 @@ public List<UserDO> getUserDetails(String username, String password) throws SQLE
     		CallableStatement cstmt = null;
     		ResultSet rs = null;
     		try {				
-    			cstmt = con.prepareCall("{call getUserDetails(?,?)}");
+    			cstmt = con.prepareCall("{call getUserDetails(?,?,?)}");
     			cstmt.setString(1, username);
     			cstmt.setString(2, password);
+    			cstmt.setString(3, modulename);
     			rs = cstmt.executeQuery();
     			if(rs != null)
     			{
