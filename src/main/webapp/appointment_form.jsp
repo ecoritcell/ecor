@@ -7,9 +7,9 @@
 <title>Appointments & Meetings</title>
 <link rel="icon" href="images/IR_logo.png" type="image/x-icon" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-<link href="css/default.css" rel="stylesheet" type="text/css" media="all">
-<script src="js/datespecial.js"></script>
-<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="./css/default.css" rel="stylesheet" type="text/css" media="all">
+<script src="./js/datespecial.js"></script>
+<link href="./css/bootstrap.min.css" rel="stylesheet">
 
 <style>
 button {
@@ -45,13 +45,12 @@ DateFormat tf = new SimpleDateFormat("dd-MMM-yyyy");
 try{
 	Connection con=DBConnect.getConnection();
     st=con.createStatement(); 
-  
- 
+   
 %>
 <div id="header"></div>
 		               				                                   
 <div align="center"><a href="appointments_meetings.jsp"><button name="button" type="button" > Appointments & Meetings </button></a>
-<a href="edit_appointments.jsp"><button name="button" type="button" > Edit Appointments </button></a></div>                                                          
+                                                          
 <div align="left">
                         <div class="col-md-4 col-md-offset-4">
                             <div class="panel panel-primary">
@@ -73,23 +72,23 @@ try{
 	       <TR class="success">
 		        <TD>			
 				<div class="form-group has-success">
-                   <label>Appointment Date:</label>
+                   <label>Appointment / Meeting Date:</label>
                      <input name="app_date" id="app_date" type="date" class="form-control" autofocus required />                                              
                 </div>
 				</TD>
 	       
 				 <TD>			
 				<div class="form-group has-success">
-                   <label>Appointment Time:</label>
-                     <input name="app_time" type="time" class="form-control" required />                                              
+                   <label>Appointment / Meeting Time:</label>
+                     <input id="app_time" name="app_time" type="time" class="form-control" required />                                              
                 </div>
 				</TD>
 		   </TR>
 	       <TR class="success">	
 				<TD>			
 				<div class="form-group has-success">
-                   <label>Appointment With:</label>
-                     <input name="app_with" type="text" class="form-control" placeholder="Enter Person's Name" required />                                              
+                   <label>Appointment / Meeting With:</label>
+                     <input id="app_with" name="app_with" type="text" class="form-control" placeholder="Enter Person's Name" required />                                              
                 </div>
 				</TD>
 				<TD>			
@@ -143,25 +142,28 @@ try{
                             <!-- /.panel -->
                         </div>
                         <!-- /.col-lg-12 -->
-                    </div>
+                    </div></div>
 <div id="footer"></div>
 <%
 
 }
 catch(SQLException e)
 {
-	out.println("SQL Error:"+e);
+	out.println("SQL Error: "+e);
 }
 catch(Exception e)
 {
-	out.println("Error:"+e);
+	out.println("Error: "+e);
 }
 %>  
+
 </body>
 
+
+
 <script type="text/javascript">
-$("#header").load("header.html");
-$("#footer").load("footer.html");
+$("#header").load("header.jsp");
+$("#footer").load("html/footer.html");
 </script>
 
 </html>

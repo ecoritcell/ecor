@@ -13,8 +13,7 @@
 <meta charset="UTF-8">
 <title>GMANR</title>
 <link rel="icon" href="images/IR_logo.png" type="image/x-icon" />
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <link href="css/default.css" rel="stylesheet" type="text/css"media="all">
 <link href="css/fonts.css" rel="stylesheet" type="text/css" media="all">
 <link href="css/gmanr.css" rel="stylesheet" type="text/css" media="all">

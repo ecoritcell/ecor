@@ -308,11 +308,13 @@
 								<p class="divheaderDesign"><fmt:message key="externallink" /></p>
 								<ul class="myul">
 									<li><a href="https://parichay.nic.in/pnv1/assets/login?sid=eOfficeRailECo" target="_blank"><fmt:message key="eoffice" /></a></li>
+									<li><a href="https://mail.gov.in/" target="_blank"><fmt:message key="nicemail" /></a></li>
 									<li><a href="https://pravas.indianrailways.gov.in/" target="_blank"> <fmt:message key="orhbooking" /> </a></li>
 									<li><a href="http://10.180.18.255/ICARD/" target="_blank"><fmt:message key="icard" /></a> </li>
 									<li><a href="https://railmadad.indianrailways.gov.in" target="_blank"><fmt:message key="railmadad" /></a></li>
 									<li><a href="https://hrms.indianrail.gov.in/HRMS" target="_blank"><fmt:message key="hrms" /></a></li>
-									<li><a href="https://esampada.mohua.gov.in/" target="_blank"><fmt:message key="holidayehome" /></a></li>									
+									<li><a href="https://esampada.mohua.gov.in/" target="_blank"><fmt:message key="holidayehome" /></a></li>
+									<li><a href="https://rrbbbs.gov.in/" target="_blank"><fmt:message key="rrbbbs" /></a></li>									
 									<li><a href="https://hmis.rcil.gov.in/AHIMSG5/hissso/Login" target="_blank"><fmt:message key="hmis" /></a></li>
 									<li><a href="https://umid.digitalir.in/1_modules_dashboard/0_login" target="_blank"><fmt:message key="umid" /></a></li>
 									<li><a href="https://ircep.gov.in/IRWCMS/Login.jsp" target="_blank"><fmt:message key="irwcms" /></a></li>

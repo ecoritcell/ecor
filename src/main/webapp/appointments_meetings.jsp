@@ -88,20 +88,20 @@ try{
            								<TD>			
 											<div class="form-group has-success">
                    								<label>From Date:</label>
-                     							<input name="from_date" id="from_date" value="<%=from_date %>" type="date" class="form-control" autofocus required />                                              
+                     							<input name="from_date" id="fromdate" value="<%=from_date %>" type="date" class="form-control" autofocus required />                                              
                 							</div>
 										</TD>
 										<TD>			
 											<div class="form-group has-success">
                    								<label>To Date:</label>
-                     							<input name="to_date" id="to_date" value="<%=to_date %>" type="date" class="form-control" required />                                              
+                     							<input name="to_date" id="todate" value="<%=to_date %>" type="date" class="form-control" required />                                              
                 							</div>
 										</TD>
 										<TD class="formheader" align="center" colspan="3" height="20"> </br>
 											<input type="hidden" name="userid" value="<%=userid %>" >
 											<INPUT name="submit" id="submit"  type="submit"  value="SHOW" class="btn btn-primary">
 											&nbsp;&nbsp;
-				 							<INPUT name="clear" type="reset" value=" CLEAR " class="btn btn-primary" onclick="javascript:clearData()"></TD>
+				 							<INPUT name="clear" type="button" value=" CLEAR " class="btn btn-primary" onclick="clearData()"></TD>
 									</tr></TABLE></form>
 									</div>
                                 	<h4 style="margin: 0px;padding: 0px"><%=request.getParameter("ack")==null?"":request.getParameter("ack") %></h4>
@@ -116,9 +116,9 @@ try{
                                     <table class="table" style="font-size:12px;" id="myTable">
                                         <thead>
                                             <tr class="success">
-                                                <th>Appointment Date</th>
-                                                <th>Appointment Time</th>
-                                                <th>Appointment With</th>
+                                                <th>Appointment / Meeting Date</th>
+                                                <th>Appointment / Meeting Time</th>
+                                                <th>Appointment / Meeting With</th>
                                                 <th>Designation</th>
                                                 <th>Purpose</th>                                                                                                                                
                                                 <th>Venue</th>
@@ -263,6 +263,11 @@ function showHideAddNew(){
 	else{
 		btnnewanr.style.display = "none";
 	}	
+}
+
+function clearData(){
+	 $("#fromdate").val("");	
+	 $("#todate").val("");	 
 }
 </script>
 

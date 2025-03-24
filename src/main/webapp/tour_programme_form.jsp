@@ -51,7 +51,7 @@ try{
 <div id="header"></div>
 </br>
 <div align="center"><a href="tour_programme.jsp"><button name="button" type="button" > Tour Programme </button></a>
-<a href="edit_tour_programme.jsp"><button name="button" type="button" > Edit Tour Programme </button></a></div>
+
 <div align="left">
                         <div class="col-md-4 col-md-offset-4">
                             <div class="panel panel-primary">
@@ -156,8 +156,8 @@ catch(Exception e)
 </body>
 
 <script type="text/javascript">
-$("#header").load("header_tour.html");
-$("#footer").load("footer.html");
+$("#header").load("header.jsp");
+$("#footer").load("html/footer.html");
 </script>
 
 </html>

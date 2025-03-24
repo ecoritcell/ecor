@@ -43,6 +43,7 @@
 								<option value="2">Personnel</option>
 								<option value="3">Commercial</option>
 								<option value="4">Operating</option>
+								<option value="5">Signal and Telecom</option>
 						</select>
 						<br> 
 						<br>
@@ -106,6 +107,7 @@
 								<option value="2">Personnel</option>
 								<option value="3">Commercial</option>
 								<option value="4">Operating</option>
+								<option value="5">Signal and Telecom</option>
 							</select>					    	
 							</div>
 						</td>
@@ -179,6 +181,7 @@ var modal = document.getElementById("myModel");
 
  window.onclick = function(event) {
      if (event.target == modal) {
+    	 $("#pagedepartment").val("-1").attr("selected","selected");
          modal.style.display = "none";
          loadDepartmentWiseJpoData("-1","1");
      }
@@ -384,6 +387,7 @@ var modal = document.getElementById("myModel");
 	
 	function closeCliked(){
 		
+		$("#pagedepartment").val("-1").attr("selected","selected");
 	    modal.style.display = "none";
 	    loadDepartmentWiseJpoData("-1","1");
 
@@ -392,6 +396,10 @@ var modal = document.getElementById("myModel");
 	function pageNumberCliked(departmentid,pageno){
 
 		loadDepartmentWiseJpoData(departmentid,pageno);
+	}
+	
+	function resetClicked(){
+		 clearForm();
 	}
 	
 	function clearForm(){

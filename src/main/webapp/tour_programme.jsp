@@ -91,20 +91,20 @@ try{
            								<TD>			
 											<div class="form-group has-success">
                    								<label>From Date:</label>
-                     							<input name="from_date" id="from_date" value="<%=from_date %>" type="date" class="form-control" autofocus required />                                              
+                     							<input name="from_date" id="fromdate" value="<%=from_date %>" type="date" class="form-control" autofocus required />                                              
                 							</div>
 										</TD>
 										<TD>			
 											<div class="form-group has-success">
                    								<label>To Date:</label>
-                     							<input name="to_date" id="to_date" value="<%=to_date %>" type="date" class="form-control" required />                                              
+                     							<input name="to_date" id="todate" value="<%=to_date %>" type="date" class="form-control" required />                                              
                 							</div>
 										</TD>
 										<TD class="formheader" align="center" colspan="3" height="20"> </br>
 											<input type="hidden" name="userid" value="<%=userid %>" >
-											<INPUT name="submit" id="submit"  type="submit"  value="SHOW" class="btn btn-primary">
+											<INPUT name="submit" id="submit" type="submit"  value="SHOW" class="btn btn-primary">
 											&nbsp;&nbsp;
-				 							<INPUT name="clear" type="reset" value=" CLEAR " class="btn btn-primary" onclick="javascript:clearData()"></TD>
+				 							<INPUT name="clear" type="button" value=" CLEAR " class="btn btn-primary" onclick="clearData()"></TD>
 									</tr></TABLE></form>
 									</div>
                                 <h4 style="margin: 0px;padding: 0px"><%=request.getParameter("ack")==null?"":request.getParameter("ack") %></h4>
@@ -141,17 +141,22 @@ String strCurrentDate = currentDate.toString();
 String strNextDate = nextDate.toString();
 
 if(!(((from_date==null)||(from_date==""))&&((to_date==null)||(to_date=="")))){
-	 q="select * from tour_details where status='1' and leaving_on between '"+from_date+"' and '"+to_date+"' order by leaving_on asc";
+	 q="select * from tour_details where status='1' and (leaving_on between '"+from_date+" 00:00:00' and '"+to_date+" 23:59:59') or (coming_back_on between '"+from_date+" 00:00:00' and '"+to_date+" 23:59:59')";
 }
 else{
-	 q="select * from tour_details where status='1' and leaving_on>=curdate() order by leaving_on asc";
+	 //q="select * from tour_details where status='1' and leaving_on>=curdate() order by leaving_on asc";
+	q="select * from tour_details where status='1' and current_timestamp() between leaving_on and coming_back_on order by leaving_on asc";
 }
+
+//System.out.print("q="+q);
 
 rs=st.executeQuery(q);
 
 while(rs.next()){
 	LocalDate leaveDate = LocalDate.parse(rs.getString("leaving_on").substring(0,10));
-	if(rs.getString("leaving_on").substring(0,10).equals(strCurrentDate)){
+	LocalDate comingBackDate = LocalDate.parse(rs.getString("coming_back_on").substring(0,10));
+	//if(rs.getString("leaving_on").substring(0,10).equals(strCurrentDate)){
+	if((leaveDate.isBefore(currentDate) || leaveDate.isEqual(currentDate)) && (comingBackDate.isAfter(currentDate) || comingBackDate.isEqual(currentDate))){
 		color="lightgreen";
 		//System.out.println(rs.getString("leaving_on").substring(0,10));
 	}
@@ -187,25 +192,25 @@ while(rs.next()){
                         </div> -->
                         <div style="display: flex; margin: 0px;padding: 0px;justify-content: space-between; padding-left: 10px;padding-right: 10px;">
                         <div class="input-color">
-    <input type="text" value="Today" readonly/>
+    <input type="text" value="On Duty/Leave" readonly/>
     <div class="color-box" style="background-color: lightgreen;"></div>
     
 </div>
 <div class="input-color">
     
-    <input type="text" value="Tomorrow" readonly/>
+    <input type="text" value="Duty/Leave (Tomorrow)" readonly/>
     <div class="color-box" style="background-color: yellow;"></div>
     
 </div>
 <div class="input-color">
     
-    <input type="text" value="Other Days" readonly/>
+    <input type="text" value="Future Duty/Leave" readonly/>
     <div class="color-box" style="background-color: lightblue;"></div>
     <!-- Replace "#FF850A" to change the color -->
 </div>
 <div class="input-color">
     
-    <input type="text" value="Past Days" readonly/>
+    <input type="text" value="Past Duty/Leave" readonly/>
     <div class="color-box" style="background-color: white;"></div>
     
 </div>
@@ -218,11 +223,11 @@ while(rs.next()){
 }
 catch(SQLException e)
 {
-	out.println("SQL Error:"+e);
+	out.println("SQL Error: "+e);
 }
 catch(Exception e)
 {
-	out.println("Error:"+e);
+	out.println("Error: "+e);
 }
 %>         				
 		                                
@@ -263,6 +268,11 @@ function showHideAddNew(){
 	else{
 		btnnewanr.style.display = "none";
 	}	
+}
+
+function clearData(){
+	 $("#fromdate").val("");	
+	 $("#todate").val("");	 
 }
 </script>
 

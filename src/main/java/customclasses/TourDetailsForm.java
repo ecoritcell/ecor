@@ -82,7 +82,7 @@ public class TourDetailsForm extends HttpServlet {
 			
 			ps.executeUpdate();
 			System.out.println("Updated Successfully");
-			response.sendRedirect("edit_tour_programme.jsp?ack=Updated Successfully");
+			response.sendRedirect("tour_programme.jsp?ack=Updated Successfully");
 			}
 		else if(request.getParameter("delete")!=null) {
 			ps=con.prepareStatement("update tour_details set status=? where id=?");
@@ -90,7 +90,7 @@ public class TourDetailsForm extends HttpServlet {
 			ps.setString(2,id);
 			ps.executeUpdate();
 			System.out.println("Deleted Successfully");
-			response.sendRedirect("edit_tour_programme.jsp?ack=Deleted Successfully");
+			response.sendRedirect("tour_programme.jsp?ack=Deleted Successfully");
 			}
 		}
 		catch(SQLException e) {

@@ -67,7 +67,7 @@ public class AppointmentForm extends HttpServlet {
 		
 	
 		System.out.println("Saved Successfully");
-		response.sendRedirect("appointment_form.jsp?ack=Saved Successfully");
+		response.sendRedirect("appointments_meetings.jsp?ack=Saved Successfully");
 		}
 		
 		else if(request.getParameter("update")!=null) {
@@ -84,7 +84,7 @@ public class AppointmentForm extends HttpServlet {
 			
 			ps.executeUpdate();
 			System.out.println("Updated Successfully");
-			response.sendRedirect("edit_appointments.jsp?ack=Updated Successfully");
+			response.sendRedirect("appointments_meetings.jsp?ack=Updated Successfully");
 			}
 		else if(request.getParameter("delete")!=null) {
 			ps=con.prepareStatement("update appointment_details set status=? where id=?");
@@ -92,17 +92,17 @@ public class AppointmentForm extends HttpServlet {
 			ps.setString(2,id);
 			ps.executeUpdate();
 			System.out.println("Deleted Successfully");
-			response.sendRedirect("edit_appointments.jsp?ack=Deleted Successfully");
+			response.sendRedirect("appointments_meetings.jsp?ack=Deleted Successfully");
 			}
 		
 		}
 		catch(SQLException e) {
-			System.out.println(e);			
+			System.out.println("SQL Error: " +e);			
 			response.sendRedirect("appointment_form.jsp?ack=Some Error Occured, Please Try Later");	
 			
 			}
 		catch(Exception e) {
-			System.out.println(e);			
+			System.out.println("Exception Error: " +e);			
 			response.sendRedirect("appointment_form.jsp?ack=Some Error Occured, Please Try Later");	
 			
 			}
