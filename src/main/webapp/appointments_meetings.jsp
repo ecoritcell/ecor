@@ -6,7 +6,6 @@
 <meta charset="UTF-8">
 <title>Appointments & Meetings</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-
 <link href="./css/default.css" rel="stylesheet" type="text/css" media="all">
 <script src="js/datespecial.js"></script>
 <link href="./css/bootstrap.min.css" rel="stylesheet">
@@ -246,8 +245,7 @@ document.addEventListener("visibilitychange", function() {
 	    location.reload(); // Reloads the page when user switches back to this tab
 	  }
 	});
-
-
+	
 $(document).ready(function() {		
 	
 	showHideAddNew();
@@ -266,8 +264,7 @@ function showHideAddNew(){
 }
 
 function clearData(){
-	 $("#fromdate").val("");	
-	 $("#todate").val("");	 
+	window.location.href="appointments_meetings.jsp";	 
 }
 </script>
 

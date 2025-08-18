@@ -38,7 +38,7 @@
 						<td> 
 							<ul class="tblelements">
 								<li> <a href="DirectoryServlet?div=KUR&diagram=SD"> Station</a></li>
-								<li> <a href="DirectoryServlet?div=KUR&diagram=LG">LC Gate</a></li>
+								<!-- <li> <a href="DirectoryServlet?div=KUR&diagram=LG">LC Gate</a></li> -->
 								<li> <a href="DirectoryServlet?div=KUR&diagram=AS">Auto Signal</a></li>
 							</ul>
 						
@@ -46,13 +46,13 @@
 						<td>
 							<ul class="tblelements">
 								<li> <a href="DirectoryServlet?div=SBP&diagram=SD"> Station</a></li>
-								<li> <a href="DirectoryServlet?div=SBP&diagram=LG">LC Gate</a></li>
+								<!-- <li> <a href="DirectoryServlet?div=SBP&diagram=LG">LC Gate</a></li> -->
 							</ul>	
 						</td>
 						<td>
 							<ul class="tblelements">
 								<li> <a href="DirectoryServlet?div=WAT&diagram=SD"> Station</a></li>
-								<li> <a href="DirectoryServlet?div=WAT&diagram=LG">LC Gate</a></li>
+								<!-- <li> <a href="DirectoryServlet?div=WAT&diagram=LG">LC Gate</a></li> -->
 								<li> <a href="DirectoryServlet?div=WAT&diagram=AS">Auto Signal</a></li>
 							</ul>							
 						</td>

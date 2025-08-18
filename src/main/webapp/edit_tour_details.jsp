@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Edit Tour Details</title>
+<title>Edit Tour/Leave Details</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <link href="css/default.css" rel="stylesheet" type="text/css" media="all">
 <script src="js/datespecial.js"></script>
@@ -21,14 +21,13 @@ button {
 </style>
 </head>
 
-<body style="background-color:grey;">
+<body style="background-color:lightgrey;">
 <%@ page import="java.util.*" %>
 <%@ page import="java.text.*" %>
 <%@ page import="java.sql.*" %>
 <%@ page import="customclasses.*" %>
 <%
-String userid="bibek";
-
+String userid=(String)session.getAttribute("userName")==null?"":(String)session.getAttribute("userName");
 String id=request.getParameter("id")==null?"":request.getParameter("id");
 String officer_name=request.getParameter("officer_name")==null?"":request.getParameter("officer_name");
 String designation=request.getParameter("designation")==null?"":request.getParameter("designation");
@@ -54,12 +53,12 @@ try{
 %>
 
 <div id="header"></div></br>
-<div align="center"><a href="tour_programme.jsp"><button name="button" type="button" > Tour Programme </button></a></div>
+<div align="center"><a href="tour_programme.jsp"><button name="button" type="button" > Tour Programme/Leave </button></a></div>
 <div align="left">
                         <div class="col-md-4 col-md-offset-4">
                             <div class="panel panel-primary">
                                 <div class="panel-heading">
-                                   <h4>Edit Tour Programme of Officers</h4>
+                                   <h4>Edit Tour Programme/Leave of Officers</h4>
                                     <h4><%=request.getParameter("ack")==null?"":request.getParameter("ack") %></h4>
                                 </div>
                             	<div class="panel-body">
@@ -68,7 +67,7 @@ try{
 		<TABLE  class="table" >							   
 			<TR class="success">
 				<TD colspan="2">					 
-                 <label style="color:#445ddd">Tour Programme Details:</label>	                  
+                 <label style="color:#445ddd">Tour Programme/Leave Details:</label>	                  
                  </TD>				
 	       </TR>
 	       <TR class="success">
@@ -159,8 +158,8 @@ catch(Exception e)
 </body>
 
 <script type="text/javascript">
-$("#header").load("header_tour.html");
-$("#footer").load("footer.html");
+$("#header").load("header.jsp");
+$("#footer").load("html/footer.html");
 </script>
 
 </html>

@@ -13,6 +13,9 @@ import customclasses.ConfigLoader;
 import java.io.OutputStream;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
+import java.nio.file.attribute.FileTime;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.io.FileInputStream;
 /**
  * Servlet implementation class DirectoryServlet
@@ -195,11 +198,12 @@ public class DirectoryServlet extends HttpServlet {
 	                for (File file : files) {
 	                    String filePath = (relativePath.isEmpty() ? "" : relativePath + "/") + file.getName();
 	                    filePath = URLEncoder.encode(filePath, StandardCharsets.UTF_8);
+	                    String lastmodifiedDate = getDateInStringFromLong( file.lastModified());	                    
 	                    //System.out.println("filePath = " + filePath);
 	                    if (file.isDirectory()) {
 	                        out.write(("<li>&#128194 <a href='DirectoryServlet?div="+DIVISION+"&diagram="+DIAGRAM +"&path=" + filePath + "' style=\"text-decoration: none;\">" + file.getName() + "</a></li>").getBytes());
 	                    } else {
-	                        out.write(("<li>&#128196; <a href='DirectoryServlet?div="+DIVISION+"&diagram="+DIAGRAM + "&path="+filePath + "' style=\"text-decoration: none;\" target='_blank'>" + file.getName() + "</a></li>").getBytes());
+	                        out.write(("<li>&#128196;"+lastmodifiedDate+" - <a href='DirectoryServlet?div="+DIVISION+"&diagram="+DIAGRAM + "&path="+filePath + "' style=\"text-decoration: none;\" target='_blank'>" + file.getName() + "</a></li>").getBytes());
 	                    }
 	                   // System.out.println("<li>&#128194 <a href='DirectoryServlet?path=" + filePath + "' style=\"text-decoration: none;\">" + file.getName() + "</a></li>");
 	                    
@@ -225,6 +229,30 @@ public class DirectoryServlet extends HttpServlet {
 	                out.write(buffer, 0, bytesRead);
 	            }
 	        }
+	    }
+	    
+	    private String getDateInStringFromLong(long lastModified) {
+	    	
+	    	String lastModifiedString = "";
+	    	
+	    	try {
+				
+	    		Date date = new Date(lastModified);
+		    	// create date object which accept long
+		    	SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss"); 
+		    	// this is the format, you can change as you prefer: 2022-02-07 09:57:59
+		    	lastModifiedString = simpleDateFormat.format(date); 
+		    	// accepts date and returns String value
+				/* System.out.println("Last Modified Date:" + lastModifiedString); */ 
+		    	// abc.txt and 2022-02-07 09:57:59
+		    	
+			} catch (Exception e) {
+				// TODO: handle exception
+				System.out.println(e.toString());
+			}
+	    	
+	    	return lastModifiedString;
+	    	
 	    }
 
 }

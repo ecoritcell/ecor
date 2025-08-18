@@ -307,7 +307,8 @@
 							<div class="divdesign">
 								<p class="divheaderDesign"><fmt:message key="externallink" /></p>
 								<ul class="myul">
-									<li><a href="https://parichay.nic.in/pnv1/assets/login?sid=eOfficeRailECo" target="_blank"><fmt:message key="eoffice" /></a></li>
+									<li><a href="https://parichay.nic.in" target="_blank"><fmt:message key="eoffice" /></a></li>
+									<li><a href="eofficesoftware.jsp" target="_blank"><fmt:message key="eofficesoftware" /></a></li>
 									<li><a href="https://mail.gov.in/" target="_blank"><fmt:message key="nicemail" /></a></li>
 									<li><a href="https://pravas.indianrailways.gov.in/" target="_blank"> <fmt:message key="orhbooking" /> </a></li>
 									<li><a href="http://10.180.18.255/ICARD/" target="_blank"><fmt:message key="icard" /></a> </li>

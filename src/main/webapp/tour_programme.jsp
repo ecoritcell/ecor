@@ -61,7 +61,7 @@
                             <div class="panel-heading" style="margin: 0px;padding: 0px;" >
                                 
                                 	<div style="display: flex; margin: 0px;padding: 0px;justify-content: space-between; padding-left: 10px;padding-right: 10px;">
-                                		<h4>Tour Programme</h4><h4> <a href="tour_programme_form.jsp"><button id="btnaddnew" name="button" type="button" style="margin: 0px;">Add New Tour Program</button></a></h4>
+                                		<h4>Tour Programme/Leave</h4><h4> <a href="tour_programme_form.jsp"><button id="btnaddnew" name="button" type="button" style="margin: 0px;">Add Tour Program/Leave</button></a></h4>
                                 	</div>
                              </div>
 <%
@@ -69,6 +69,7 @@ String id=request.getParameter("id")==null?"":request.getParameter("id");
 String userid=(String)session.getAttribute("userName")==null?"":(String)session.getAttribute("userName");
 String from_date=request.getParameter("from_date")==null?"":request.getParameter("from_date");
 String to_date=request.getParameter("to_date")==null?"":request.getParameter("to_date");
+
 
 ResultSet rs=null;
 Statement st=null;
@@ -141,11 +142,13 @@ String strCurrentDate = currentDate.toString();
 String strNextDate = nextDate.toString();
 
 if(!(((from_date==null)||(from_date==""))&&((to_date==null)||(to_date=="")))){
-	 q="select * from tour_details where status='1' and (leaving_on between '"+from_date+" 00:00:00' and '"+to_date+" 23:59:59') or (coming_back_on between '"+from_date+" 00:00:00' and '"+to_date+" 23:59:59')";
+	 q="SELECT * FROM tour_details where status='1' and id not in (select id from tour_details where (date_format(coming_back_on, '%Y-%m-%d')< '"+from_date+"' or date_format(leaving_on, '%Y-%m-%d')> '"+to_date+"'))";
 }
 else{
 	 //q="select * from tour_details where status='1' and leaving_on>=curdate() order by leaving_on asc";
-	q="select * from tour_details where status='1' and current_timestamp() between leaving_on and coming_back_on order by leaving_on asc";
+	//q="select * from tour_details where status='1' and ((current_timestamp() between leaving_on and coming_back_on) or leaving_on>current_date()) order by leaving_on asc";
+	//q="select * from tour_details where status='1' and (date_format(leaving_on, '%Y-%m-%d') >= curdate() or date_format(coming_back_on, '%Y-%m-%d') >= curdate()) order by leaving_on asc;";
+	q="select * from tour_details where status='1' and coming_back_on > CURRENT_TIMESTAMP() order by leaving_on asc;";
 }
 
 //System.out.print("q="+q);
@@ -192,7 +195,7 @@ while(rs.next()){
                         </div> -->
                         <div style="display: flex; margin: 0px;padding: 0px;justify-content: space-between; padding-left: 10px;padding-right: 10px;">
                         <div class="input-color">
-    <input type="text" value="On Duty/Leave" readonly/>
+    <input type="text" value="On Duty/Leave (Today)" readonly/>
     <div class="color-box" style="background-color: lightgreen;"></div>
     
 </div>
@@ -205,7 +208,7 @@ while(rs.next()){
 <div class="input-color">
     
     <input type="text" value="Future Duty/Leave" readonly/>
-    <div class="color-box" style="background-color: lightblue;"></div>
+    <div class="color-box" style="background-color: lightgrey;"></div>
     <!-- Replace "#FF850A" to change the color -->
 </div>
 <div class="input-color">
@@ -271,8 +274,7 @@ function showHideAddNew(){
 }
 
 function clearData(){
-	 $("#fromdate").val("");	
-	 $("#todate").val("");	 
+	 window.location.href="tour_programme.jsp";
 }
 </script>
 

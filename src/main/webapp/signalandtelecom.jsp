@@ -66,7 +66,7 @@
 								<li> <a href="ExternalDocument?type=2&name=Division Setup.pdf">Divisional Setup</a></li>
 								<li> <a href="ExternalDocument?type=2&name=ART_ARME.pdf">ART & ARME</a></li>
 								<li> <a href="https://indianrailways.gov.in/railwayboard/view_section.jsp?lang=0&id=0,1,304,366,538,2713,2718,2722,2732">Signal Publication</a></li>
-								<li> <a href="stationdiagram.jsp">Station /LC/IBS Layouts</a></li>
+								<li> <a href="stationdiagram.jsp">Station/IBS Layouts</a></li>
 							</ul>
 						</td>
 						
@@ -76,13 +76,13 @@
 								<li> <a href="http://10.50.17.190/">Telecom Web Application</a></li>
 								<li> <a href="https://iriset.railnet.gov.in/">IRISET Internet Website</a></li>
 								<li> <a href="signallingsystemmap.jsp">Signal System Map</a></li>
-								<li> <a href="https://eastcoastrail.indianrailways.gov.in/view_section.jsp?lang=0&id=0,3,878">S&T WORKS-Eligibility Criteria</a></li>
+								<li> <a href="https://eastcoastrail.indianrailways.gov.in/view_section.jsp?lang=0&id=0,3,878">Similar Nature for S&T Works</a></li>
 							</ul>
 						</td>
 						
 						<td>  
 							<ul class="tblelements">
-								<li> <a href="ExternalDocument?type=2&name=GSU Setup.pdf">GSU Setup</a></li>
+								<!-- <li> <a href="ExternalDocument?type=2&name=GSU Setup.pdf">GSU Setup</a></li> -->
 								<li> <a href="telecommunicationcircular.jsp">Telecom Circular</a></li>
 								<li> <a href="https://eastcoastrail.indianrailways.gov.in/view_section.jsp?lang=0&id=0,6,922,927">G& SR</a></li>
 								<li> <a href="signalsip.jsp">Signal SIP</a></li>

@@ -21,7 +21,6 @@ button {
             cursor: pointer;
         }
 </style>
-
 </head>
 
 <body>
@@ -30,8 +29,8 @@ button {
 <%@ page import="java.sql.*" %>
 <%@ page import="customclasses.*" %>
 <%
-String userid="bibek";
 
+String userid=(String)session.getAttribute("userName")==null?"":(String)session.getAttribute("userName");
 String id=request.getParameter("id")==null?"":request.getParameter("id");
 
 ResultSet rs=null;
@@ -48,7 +47,7 @@ try{
    
 %>
 <div id="header"></div>
-		               				                                   
+</br>		               				                                   
 <div align="center"><a href="appointments_meetings.jsp"><button name="button" type="button" > Appointments & Meetings </button></a>
                                                           
 <div align="left">
@@ -61,7 +60,7 @@ try{
                                 <div class="panel-body">
                                     <div class="row">
                                        
-          <form name="app_form" id="app_form" method="post" action="./AppointmentForm"  >	
+     <form name="app_form" id="app_form" method="post" action="./AppointmentForm"  >	
           		
 		<TABLE  class="table" >							   
 			<TR class="success">
@@ -75,8 +74,7 @@ try{
                    <label>Appointment / Meeting Date:</label>
                      <input name="app_date" id="app_date" type="date" class="form-control" autofocus required />                                              
                 </div>
-				</TD>
-	       
+				</TD>	       
 				 <TD>			
 				<div class="form-group has-success">
                    <label>Appointment / Meeting Time:</label>
@@ -104,25 +102,22 @@ try{
                    <label>Purpose:</label>                     
                      <textarea name="app_purpose" class="form-control" placeholder="Enter Purpose" required ></textarea>                                              
                 </div>
-				</TD>		        
-							 			 
+				</TD>							 			 
 	       </TR>
 	       <TR class="success">
 				<TD>			
 				 <div class="form-group has-success">
                    <label>Venue:</label>                  
-				   <input name="app_venue" type="text"  class="form-control" value="GMs Chamber" placeholder="Enter Venue" required />
+				   <input name="app_venue" type="text"  class="form-control" value="Chintan Kaksha" placeholder="Enter Venue" required />
                   </div>
-				</TD>
-		        
+				</TD>		        
 	           <TD>			
 				<div class="form-group has-success">
                    <label>Is VIP:</label>
                      <input name="is_vip" type="checkbox"  />                                              
                 </div>
 				</TD>
-			</TR>
-	       	       				  		   		   	       	        
+			</TR>	       	       				  		   		   	       	        
 	        <TR>
 				<TD class="formheader" align="center" colspan="5" height="20"> </br>
 				<input type="hidden" name="userid" value="<%=userid %>" >
@@ -130,8 +125,7 @@ try{
 						&nbsp;&nbsp;
 				 <INPUT name="clear" type="reset"  value=" CLEAR " class="btn btn-primary" onclick="javascript:clearData()"></TD>
 			</TR>
-		</TABLE>
-		
+		</TABLE>		
 </form>
                                         
                                     </div>
@@ -143,7 +137,7 @@ try{
                         </div>
                         <!-- /.col-lg-12 -->
                     </div></div>
-<div id="footer"></div>
+
 <%
 
 }
@@ -156,10 +150,8 @@ catch(Exception e)
 	out.println("Error: "+e);
 }
 %>  
-
+<div id="footer"></div>
 </body>
-
-
 
 <script type="text/javascript">
 $("#header").load("header.jsp");

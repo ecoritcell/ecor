@@ -194,7 +194,7 @@ function checkModulenameAndPageName(modulename){
 		var path = document.location.pathname;
 		var page = path.split("/").pop();
 		
-		if((page == "appointments_meetings.jsp" || page == "tour_programme.jsp" ) && modulename =="APT"){
+		if((page == "appointments_meetings.jsp" ||"appointment_form.jsp" || page == "tour_programme.jsp" ||"tour_programme_form.jsp" ) && modulename =="APT"){
 			isModuleAndLoggedinUserSame = true;
 		}else if((page == "jpo.jsp" || page == "oqa.jsp" || page == "gmanr.jsp" ) && modulename =="ANR"){
 			isModuleAndLoggedinUserSame = true;

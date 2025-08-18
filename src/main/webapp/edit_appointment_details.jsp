@@ -21,14 +21,14 @@ button {
 </style>
 </head>
 
-<body style="background-color:grey;">
+<body style="background-color:lightgrey;">
 <%@ page import="java.util.*" %>
 <%@ page import="java.text.*" %>
 <%@ page import="java.sql.*" %>
 <%@ page import="customclasses.*" %>
 <%
-String userid="bibek";
 
+String userid=(String)session.getAttribute("userName")==null?"":(String)session.getAttribute("userName");
 String id=request.getParameter("id")==null?"":request.getParameter("id");
 String app_date=request.getParameter("appointment_date")==null?"":request.getParameter("appointment_date");
 String app_time=request.getParameter("appointment_time")==null?"":request.getParameter("appointment_time");
@@ -52,7 +52,7 @@ try{
    
 %>
 
-<div id="header"></div>
+<div id="header"></div></br>
 <div align="center"><a href="appointments_meetings.jsp"><button name="button" type="button" > Appointments & Meetings </button></a></div>
 <div align="left">
                         <div class="col-md-4 col-md-offset-4">
@@ -159,8 +159,8 @@ catch(Exception e)
 </body>
 
 <script type="text/javascript">
-$("#header").load("header.html");
-$("#footer").load("footer.html");
+$("#header").load("header.jsp");
+$("#footer").load("html/footer.html");
 </script>
 
 </html>

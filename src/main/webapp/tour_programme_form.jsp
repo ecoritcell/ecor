@@ -29,8 +29,8 @@ button {
 <%@ page import="java.sql.*" %>
 <%@ page import="customclasses.*" %>
 <%
-String userid="bibek";
 
+String userid=(String)session.getAttribute("userName")==null?"":(String)session.getAttribute("userName");
 String id=request.getParameter("id")==null?"":request.getParameter("id");
 
 ResultSet rs=null;
@@ -50,13 +50,13 @@ try{
 
 <div id="header"></div>
 </br>
-<div align="center"><a href="tour_programme.jsp"><button name="button" type="button" > Tour Programme </button></a>
+<div align="center"><a href="tour_programme.jsp"><button name="button" type="button" > Tour Programme/Leave </button></a>
 
 <div align="left">
                         <div class="col-md-4 col-md-offset-4">
                             <div class="panel panel-primary">
                                 <div class="panel-heading">
-                                   <h4>Tour Programme of Officers</h4>
+                                   <h4>Tour Programme/Leave of Officers</h4>
                                     <h4><%=request.getParameter("ack")==null?"":request.getParameter("ack") %></h4>
                                 </div>
                                 <div class="panel-body">
@@ -65,7 +65,7 @@ try{
 		<TABLE  class="table" >							   
 			<TR class="success">
 				<TD colspan="2">					 
-                 <label style="color:#445ddd">Tour Programme Details:</label>	                  
+                 <label style="color:#445ddd">Tour Programme/Leave Details:</label>	                  
                  </TD>				
 	       </TR>
 	       <TR class="success">
@@ -139,7 +139,7 @@ try{
                             <!-- /.panel -->
                         </div>
                         <!-- /.col-lg-12 -->
-                    </div>
+                    </div></div>
 <div id="footer"></div>
 <%
 
