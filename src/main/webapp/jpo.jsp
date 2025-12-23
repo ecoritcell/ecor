@@ -53,7 +53,7 @@
 			</div>
 			
 			<div id="addanrdiv">				
-				<input id="btnaddnew" type="button" value="ADD NEW JPO" class="flex-items" onclick="addNewJpoClicked()">
+				<input id="btnaddnew" type="button"  value="ADD NEW JPO" class="flex-items" onclick="addNewJpoClicked()" style="display: none;">
 			</div>
 		</div>
 
@@ -201,16 +201,17 @@ var modal = document.getElementById("myModel");
  
 	function showHideAddNewBtn(){
 
+	 	let path = document.location.pathname;
+		let page = path.split("/").pop();
 		var btnaddnew = document.getElementById("btnaddnew");
 		var uname = '<%=session.getAttribute("userName")%>';
-		var module = '<%=session.getAttribute("module")%>';
-		if(uname !='null' && module == "ANR"){			
+		let page_access = '<%=session.getAttribute("page_access")%>';
+		if(uname !=null && page_access !=null && page_access.includes(page)){			
 			btnaddnew.style.display = "block";
 		}
 		else{
 			btnaddnew.style.display = "none";
 		}
-		
 	}
 	
 	function loadDepartmentWiseJpoData(departmentid,pgno){

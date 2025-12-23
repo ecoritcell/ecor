@@ -65,6 +65,12 @@
                                 	</div>
                              </div>
 <%
+
+String servletPath = request.getServletPath();
+//Extract page name like "page.jsp"
+String pageName = servletPath.substring(servletPath.lastIndexOf("/") + 1);
+Set<String> page_access =  (HashSet<String>)session.getAttribute("page_access");
+
 String id=request.getParameter("id")==null?"":request.getParameter("id");
 String userid=(String)session.getAttribute("userName")==null?"":(String)session.getAttribute("userName");
 String from_date=request.getParameter("from_date")==null?"":request.getParameter("from_date");
@@ -126,7 +132,7 @@ try{
                                                 <th>Duty/Leave</th>                                                                                                                                
                                                 <th>Purpose</th>
                                                 <% 
-										  	if(!(userid.equals("") ||userid.equals("null"))){%>
+										  	if(!(userid.equals("") ||userid.equals("null"))  && page_access.contains(pageName)){%>
 										  		<th>Edit</th>
 										  	<% }%>                                                                                                                                           
                                             </tr>                                            
@@ -180,7 +186,7 @@ while(rs.next()){
 										  	<td><%=rs.getString("leave_duty") %></td>
 										  	<td><%=rs.getString("purpose") %></td>
 										  	<% 
-										  	if(!(userid.equals("") ||userid.equals(""))){%>
+										  	if(!(userid.equals("") ||userid.equals(""))  && page_access.contains(pageName) ){%>
 										  	<td><a href="edit_tour_details.jsp?officer_name=<%=rs.getString("officer_name") %>&designation=<%=rs.getString("designation") %>&hq_leaving=<%=rs.getString("leaving_on") %>&hq_return=<%=rs.getString("coming_back_on") %>&tour_purpose=<%=rs.getString("purpose") %>&tour_location=<%=rs.getString("location") %>&tour_type=<%=rs.getString("leave_duty") %>&id=<%=rs.getString("id") %>" ><img src="images/edit.png" width="20px"></a></td>										  		
 										  	<% }%>
                                         </tr>
@@ -262,10 +268,14 @@ document.addEventListener("visibilitychange", function() {
 
 
 function showHideAddNew(){
+	
+ 	let path = document.location.pathname;
+	let page = path.split("/").pop();
+
 	var btnnewanr = document.getElementById("btnaddnew");
 	var uname = '<%=session.getAttribute("userName")%>';
-	var module = '<%=session.getAttribute("module")%>';
-	if(uname !='null' && module == "APT"){			
+	let page_access = '<%=session.getAttribute("page_access")%>';
+	if(uname !=null && page_access !=null && page_access.includes(page)){		
 		btnnewanr.style.display = "block";
 	}
 	else{

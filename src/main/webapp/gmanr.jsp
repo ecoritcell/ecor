@@ -164,10 +164,13 @@ $("#footer").load("html/footer.html");
 
 	function showHideAddNewAnr(){
 
+	 	let path = document.location.pathname;
+		let page = path.split("/").pop();
+
 		var btnnewanr = document.getElementById("btnaddnewanr");
 		var uname = '<%=session.getAttribute("userName")%>';
-		var module = '<%=session.getAttribute("module")%>';
-		if(uname !='null' && module == "ANR"){			
+		let page_access = '<%=session.getAttribute("page_access")%>';
+		if(uname !=null && page_access !=null && page_access.includes(page)){			
 			btnnewanr.style.display = "block";
 		}
 		else{

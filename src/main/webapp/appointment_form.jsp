@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>    
 <!DOCTYPE html>
 <html>
 <head>
@@ -91,10 +91,10 @@ try{
 				</TD>
 				<TD>			
 				<div class="form-group has-success">
-                   <label>Designation:</label>
-                     <input name="designation" type="text" class="form-control" placeholder="Enter Designation" required />                                              
+                   <label>Is VIP:</label>
+                     <input name="is_vip" type="checkbox"  />                                              
                 </div>
-				</TD>
+				</TD>				
 				</TR>
 	       <TR class="success">			 			 
 	       		<TD colspan="2">			
@@ -113,15 +113,15 @@ try{
 				</TD>		        
 	           <TD>			
 				<div class="form-group has-success">
-                   <label>Is VIP:</label>
-                     <input name="is_vip" type="checkbox"  />                                              
+                   <label>Remarks:</label>
+                     <input name="remarks" type="text" class="form-control" placeholder="Enter Remarks" />                                              
                 </div>
 				</TD>
 			</TR>	       	       				  		   		   	       	        
 	        <TR>
 				<TD class="formheader" align="center" colspan="5" height="20"> </br>
 				<input type="hidden" name="userid" value="<%=userid %>" >
-						<INPUT name="submit" id="submit"  type="submit"  value="SUBMIT" class="btn btn-primary">
+						<INPUT name="submit" id="submit" type="submit" value="SUBMIT" class="btn btn-primary">
 						&nbsp;&nbsp;
 				 <INPUT name="clear" type="reset"  value=" CLEAR " class="btn btn-primary" onclick="javascript:clearData()"></TD>
 			</TR>
@@ -152,6 +152,29 @@ catch(Exception e)
 %>  
 <div id="footer"></div>
 </body>
+
+<script type="text/javascript">
+
+$(document).ready(function() {		
+	
+	let path = document.location.pathname;
+	let page = path.split("/").pop();
+	var uname = '<%=session.getAttribute("userName")%>';
+	let page_access = '<%=session.getAttribute("page_access")%>';
+	if(uname !=null && page_access !=null && page_access.includes(page)){			
+		console.log("Session exist");
+	}
+	else{
+		console.log("Session doesn't exist");
+		window.location.href = "appointments_meetings.jsp";
+	}
+	
+	/* if((String)session.getAttribute("userName")==null){		
+		window.location.href = "appointments_meetings.jsp";
+	} */
+})
+
+</script>
 
 <script type="text/javascript">
 $("#header").load("header.jsp");

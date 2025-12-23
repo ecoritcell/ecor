@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-        <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+        
+        <%@ taglib prefix="fmt" uri="jakarta.tags.fmt" %>
 <% 
     String lang = (String) session.getAttribute("language");
     if (lang == null) lang = "en";
@@ -93,12 +94,16 @@ function checkLanguage(){
 function checkUserSession(){
 	
 	
-	var isSessionExist = false;
-	var uname = '<%=session.getAttribute("userName")%>';
-	var module = '<%=session.getAttribute("module")%>';
+	let isSessionExist = false;
+	let path = document.location.pathname;
+	let page = path.split("/").pop();
+	let uname = '<%=session.getAttribute("userName")%>';
+	let page_access = '<%=session.getAttribute("page_access")%>';
+	
 	console.log("uname - " +uname);
-	console.log("module - " +module);
-	if(uname != "null" && checkModulenameAndPageName(module)){
+	console.log("page_access - " +page_access);
+	
+	if(uname != null && page_access != null && page_access.includes(page)){
 		console.log("Session exist");
 		isSessionExist = true; 		
 	}else{
@@ -119,10 +124,6 @@ function changeLoginLogoutBtn(){
 		
 		btnlogin.style.display = "block";
 		if(checkUserSession()){
-			/* console.log("Login button changeg to logout");
-			 var btn = document.getElementById("btnlogin");
-			 console.log(btn);		  */
-			 /* btn.innerText("Logout"); */
 			 $("#btnlogin").html("Logout");	 
 		}else{
 			console.log("Login button changeg to login");
@@ -131,10 +132,7 @@ function changeLoginLogoutBtn(){
 	}else{
 		
 		btnlogin.style.display = "none";
-	}
-
-	
-	
+	}	
 }
 
 function btnloginClicked(){
@@ -187,7 +185,7 @@ function btnHindiClicked(){
 	  }) 
 }
 
-function checkModulenameAndPageName(modulename){
+/* function checkModulenameAndPageName(modulename){
 	
 	var isModuleAndLoggedinUserSame = false;
 	if(modulename != null && modulename.length >0){
@@ -196,14 +194,14 @@ function checkModulenameAndPageName(modulename){
 		
 		if((page == "appointments_meetings.jsp" ||"appointment_form.jsp" || page == "tour_programme.jsp" ||"tour_programme_form.jsp" ) && modulename =="APT"){
 			isModuleAndLoggedinUserSame = true;
-		}else if((page == "jpo.jsp" || page == "oqa.jsp" || page == "gmanr.jsp" ) && modulename =="ANR"){
+		}else if((page == "jpo.jsp" || page == "oqa.jsp" || page == "gmanr.jsp" || page == "circular_and_policy.jsp") && modulename =="ANR"){
 			isModuleAndLoggedinUserSame = true;
 		}
 
 	}
 	
 	return isModuleAndLoggedinUserSame;
-}
+} */
 
 
 </script>

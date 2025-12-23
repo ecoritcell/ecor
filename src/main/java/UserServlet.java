@@ -1,27 +1,18 @@
-
-
-import java.awt.desktop.AboutHandler;
-import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.ArrayList;
-import java.util.Date;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
+import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
-
-import javax.servlet.ServletException;
-import javax.servlet.annotation.MultipartConfig;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-import javax.servlet.http.Part;
+import java.util.Set;
 
 import com.google.gson.Gson;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.MultipartConfig;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class GmiServlet
@@ -49,12 +40,14 @@ public class UserServlet extends HttpServlet {
 			System.out.println("pagename = " +pagename);
 			if(username.length()>0 && password.length()>0 && pagename.length()>0) {
 				
-				String moduleName = getModulenameFromPagename(pagename);	
-				System.out.println("moduleName = " +moduleName);
+				/*
+				 * String moduleName = getModulenameFromPagename(pagename);
+				 * System.out.println("moduleName = " +moduleName);
+				 */
 				
 				try {
 					UserDAO  userdao = new UserDAO();
-					List<UserDO> listAll = userdao.getUserDetails(username,password,moduleName);
+					List<UserDO> listAll = userdao.getUserDetails(username,password,pagename);
 		            if(listAll.isEmpty())
 		            {
 						json = "[{\"status\":0,\"msg\":\"Enter valid username and password.\"}]";
@@ -75,7 +68,13 @@ public class UserServlet extends HttpServlet {
 							/* newSession.setMaxInactiveInterval(10*60); */					  
 						  newSession.setAttribute("userId", userdo.userid);
 						  newSession.setAttribute("userName", userdo.username);
-						  newSession.setAttribute("module", userdo.module);
+							/* newSession.setAttribute("module", userdo.module); */	
+						  System.out.println("userdo.pageAccess = " +userdo.pageAccess);
+						  
+						  Set<String> page_access = new HashSet<>();
+						  page_access.addAll(Arrays.asList(userdo.pageAccess.split(",")));						  
+						  System.out.println("page_access = " +page_access);
+						  newSession.setAttribute("page_access", page_access);
 							 						
 							json = "[{\"status\":1,\"msg\":\"Valid user.\",\"username\":\""+userdo.username+"\",\"userid\":"+userdo.userid+",\"module\":\""+userdo.module+"\"}]";
 							System.out.println("Json:" +json);
@@ -132,23 +131,21 @@ public class UserServlet extends HttpServlet {
 		}
 	}
 	
-	public String getModulenameFromPagename(String pagename) {
-		
-		String modulename = "";
-		if(pagename.equalsIgnoreCase("appointments_meetings.jsp"))
-			modulename = "APT";
-		else if(pagename.equalsIgnoreCase("tour_programme.jsp"))
-			modulename = "APT";
-		else if(pagename.equalsIgnoreCase("oqa.jsp"))
-			modulename = "ANR";
-		else if(pagename.equalsIgnoreCase("jpo.jsp"))
-			modulename = "ANR";
-		else if(pagename.equalsIgnoreCase("gmanr.jsp"))
-			modulename = "ANR";
-		
-		return modulename;		
-		
-	}
+	/*
+	 * public String getModulenameFromPagename(String pagename) {
+	 * 
+	 * String modulename = "";
+	 * if(pagename.equalsIgnoreCase("appointments_meetings.jsp")) modulename =
+	 * "APT"; else if(pagename.equalsIgnoreCase("tour_programme.jsp")) modulename =
+	 * "APT"; else if(pagename.equalsIgnoreCase("oqa.jsp")) modulename = "ANR"; else
+	 * if(pagename.equalsIgnoreCase("jpo.jsp")) modulename = "ANR"; else
+	 * if(pagename.equalsIgnoreCase("gmanr.jsp")) modulename = "ANR"; else
+	 * if(pagename.equalsIgnoreCase("circular_and_policy.jsp")) modulename = "ANR";
+	 * 
+	 * return modulename;
+	 * 
+	 * }
+	 */
 	
 	
 	

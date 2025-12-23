@@ -8,11 +8,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.*;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
 
 /**
@@ -32,7 +32,7 @@ public class AppointmentForm extends HttpServlet {
 		String app_date=request.getParameter("app_date");		
 		String app_time=request.getParameter("app_time");
 		String app_with=request.getParameter("app_with");
-		String designation=request.getParameter("designation");
+		String remarks=request.getParameter("remarks");
 		String app_purpose=request.getParameter("app_purpose");
 		String app_venue=request.getParameter("app_venue");
 		String is_vip=request.getParameter("is_vip");		
@@ -51,12 +51,12 @@ public class AppointmentForm extends HttpServlet {
 		
 		if(request.getParameter("submit")!=null) {
 			
-		ps=con.prepareStatement("insert into appointment_details (appointment_date,appointment_time,appointment_with,designation,purpose,venue,vip,userid"
+		ps=con.prepareStatement("insert into appointment_details (appointment_date,appointment_time,appointment_with,remarks,purpose,venue,vip,userid"
 				+ ") values(?,?,?,?,?,?,?,?)");
 		ps.setString(1,app_date);
 		ps.setString(2,app_time);		
 		ps.setString(3,app_with);
-		ps.setString(4,designation);
+		ps.setString(4,remarks);
 		ps.setString(5,app_purpose);
 		ps.setString(6,app_venue);
 		ps.setString(7,is_vip);
@@ -71,11 +71,11 @@ public class AppointmentForm extends HttpServlet {
 		}
 		
 		else if(request.getParameter("update")!=null) {
-			ps=con.prepareStatement("update appointment_details set appointment_date=?,appointment_time=?,appointment_with=?,designation=?,purpose=?,venue=?,vip=?,userid=? where id=?");
+			ps=con.prepareStatement("update appointment_details set appointment_date=?,appointment_time=?,appointment_with=?,remarks=?,purpose=?,venue=?,vip=?,userid=? where id=?");
 			ps.setString(1,app_date);
 			ps.setString(2,app_time);		
 			ps.setString(3,app_with);
-			ps.setString(4,designation);
+			ps.setString(4,remarks);
 			ps.setString(5,app_purpose);
 			ps.setString(6,app_venue);
 			ps.setString(7,is_vip);

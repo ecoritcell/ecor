@@ -292,21 +292,22 @@ function loadLastUpdatedDate(){
 
 function showHideAddEditBtn(){
 
-	var uname = '<%=session.getAttribute("userName")%>';
-	var module = '<%=session.getAttribute("module")%>';
+ 	let path = document.location.pathname;
+	let page = path.split("/").pop();
+
+	var uname = '<%=session.getAttribute("userName")%>';	
+	let page_access = '<%=session.getAttribute("page_access")%>';
 	const editicons = document.getElementsByClassName("editImageClass");
 	
 	for (let i = 0; i < editicons.length; i++) {
 
 			const imgelements = editicons[i];
-			if (uname != 'null' && module == "ANR") {
-
+			if (uname != null && page_access != null && page_access.includes(page)) {
 				imgelements.style.display = "block";
 			} else {
 				imgelements.style.display = "none";
 			}
 		}
-
 	}
 
 

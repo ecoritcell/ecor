@@ -18,13 +18,20 @@
 
 	
 	<!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
-<dependency>
+	
+<!--<dependency>
     <groupId>javax.servlet</groupId>
     <artifactId>javax.servlet-api</artifactId>
     <version>3.1.0</version>
     <scope>provided</scope>    
-</dependency>
+</dependency>-->
 
+<dependency>
+    <groupId>jakarta.servlet</groupId>
+    <artifactId>jakarta.servlet-api</artifactId>
+    <version>6.0.0</version>
+    <scope>provided</scope>
+</dependency>
 
 	<!-- https://mvnrepository.com/artifact/com.mysql/mysql-connector-j -->
 	<dependency>
@@ -40,14 +47,51 @@
 	    <version>2.11.0</version>
 	</dependency>
 	
-	<dependency>
+	<!--<dependency>
 	    <groupId>javax.servlet</groupId>
 	    <artifactId>jstl</artifactId>
 	    <version>1.2</version>
-	</dependency>
+	</dependency>-->
+	
+	<!--<dependency>
+    <groupId>jakarta.servlet.jsp.jstl</groupId>
+    <artifactId>jakarta.servlet.jsp.jstl-api</artifactId>
+    <version>3.0.2</version>
+</dependency>-->
+
+<dependency>
+    <groupId>jakarta.servlet.jsp.jstl</groupId>
+    <artifactId>jakarta.servlet.jsp.jstl-api</artifactId>
+    <version>3.0.0</version>
+</dependency>
+
+<dependency>
+    <groupId>org.glassfish.web</groupId>
+    <artifactId>jakarta.servlet.jsp.jstl</artifactId>
+    <version>3.0.1</version>
+</dependency>
 
 	</dependencies>
   <build>
     <finalName>ecor</finalName>
+    
+    <plugins>
+        <!-- Upgrade the War Plugin (Fixes the ExceptionInitializerError) -->
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-war-plugin</artifactId>
+            <version>3.3.2</version> 
+        </plugin>
+
+        <!-- Upgrade the Compiler Plugin to support Java 17/21 -->
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <version>3.11.0</version>
+            <configuration>
+                <release>17</release> <!-- Use 17 or 21 depending on your JDK -->
+            </configuration>
+        </plugin>
+    </plugins>
 	</build>
 </project>

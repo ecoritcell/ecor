@@ -97,7 +97,6 @@ function submitClicked(){
 	else{
 				        			
 		$statusPara.text ("");
-		
 		$.get("UserServlet",{operation:"getUserDetails",username:usrname,password:usrpassword,pagename:pagename},function(response, status) {
 			
 			console.log("status" + status);

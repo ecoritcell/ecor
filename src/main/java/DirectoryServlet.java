@@ -2,11 +2,11 @@
 
 import java.io.File;
 import java.io.IOException;
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 
 import customclasses.ConfigLoader;
 
@@ -52,18 +52,21 @@ public class DirectoryServlet extends HttpServlet {
 		//System.out.println("BASE_DIRECTORY = "+BASE_DIRECTORY);
 		
         if (path == null || path.isEmpty()) {
-            path = BASE_DIRECTORY;
+            path = BASE_DIRECTORY.trim();
         } else {
            // path = BASE_DIRECTORY + File.separator + path;
-        	path = BASE_DIRECTORY +  path;
+        	path = BASE_DIRECTORY.trim() +  path.trim();
         	path = path.replace("/", "\\");
         }
 
-       // System.out.println("path = " + path);
-        File directory = new File(path);
+        //System.out.println("path = " + path);
+        File directory = new File(path.trim());
+        System.out.println("directory path = " + directory);
         if (directory.exists() && directory.isDirectory()) {
+        	//System.out.println("Directory");
             displayDirectory(response, directory, path);
         } else if (directory.exists() && directory.isFile()) {
+        	//System.out.println("Path");
             downloadFile(response, directory);
         } else {
             response.getWriter().println("<h3>Invalid path!</h3>");
@@ -169,7 +172,7 @@ public class DirectoryServlet extends HttpServlet {
 		}
 	
 		
-		return baseDirString;
+		return baseDirString.trim();
 		
 		
 	}
@@ -179,7 +182,7 @@ public class DirectoryServlet extends HttpServlet {
 		  	response.setContentType("text/html");
 		  	// System.out.println("currentPath = " +currentPath);
 	        //String relativePath = currentPath.replace(BASE_DIRECTORY, "").replace("\\", "/");
-		  	String relativePath = currentPath.replace(BASE_DIRECTORY, "").replace("\\", "/");
+		  	String relativePath = currentPath.replace(BASE_DIRECTORY.trim(), "").replace("\\", "/");
 		  	// System.out.println("relativePath = " +relativePath);
 
 	        try (OutputStream out = response.getOutputStream()) {
@@ -193,16 +196,24 @@ public class DirectoryServlet extends HttpServlet {
 	                out.write(("<li><a href='DirectoryServlet?div="+DIVISION+"&diagram="+DIAGRAM + "&path=" + parentPath + "' style=\"text-decoration: none;\">&#11013; Back</a></li>").getBytes());
 	            }
 
-	            File[] files = directory.listFiles();
+	            
+				 File fixedDir = new File(directory.getPath().trim()); 
+				/* File[] files = directory.listFiles(); */ 
+				 File[] files = fixedDir.listFiles(); 
 	            if (files != null) {
 	                for (File file : files) {
+	                	
 	                    String filePath = (relativePath.isEmpty() ? "" : relativePath + "/") + file.getName();
+	                    filePath = filePath.trim();
 	                    filePath = URLEncoder.encode(filePath, StandardCharsets.UTF_8);
 	                    String lastmodifiedDate = getDateInStringFromLong( file.lastModified());	                    
 	                    //System.out.println("filePath = " + filePath);
+	                    
 	                    if (file.isDirectory()) {
+	                    	//System.out.println("directory");
 	                        out.write(("<li>&#128194 <a href='DirectoryServlet?div="+DIVISION+"&diagram="+DIAGRAM +"&path=" + filePath + "' style=\"text-decoration: none;\">" + file.getName() + "</a></li>").getBytes());
 	                    } else {
+	                    	//System.out.println("file");
 	                        out.write(("<li>&#128196;"+lastmodifiedDate+" - <a href='DirectoryServlet?div="+DIVISION+"&diagram="+DIAGRAM + "&path="+filePath + "' style=\"text-decoration: none;\" target='_blank'>" + file.getName() + "</a></li>").getBytes());
 	                    }
 	                   // System.out.println("<li>&#128194 <a href='DirectoryServlet?path=" + filePath + "' style=\"text-decoration: none;\">" + file.getName() + "</a></li>");

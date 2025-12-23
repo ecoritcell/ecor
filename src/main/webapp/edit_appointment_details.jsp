@@ -33,7 +33,7 @@ String id=request.getParameter("id")==null?"":request.getParameter("id");
 String app_date=request.getParameter("appointment_date")==null?"":request.getParameter("appointment_date");
 String app_time=request.getParameter("appointment_time")==null?"":request.getParameter("appointment_time");
 String app_with=request.getParameter("appointment_with")==null?"":request.getParameter("appointment_with");
-String designation=request.getParameter("designation")==null?"":request.getParameter("designation");
+String remarks=request.getParameter("remarks")==null?"":request.getParameter("remarks");
 String app_purpose=request.getParameter("purpose")==null?"":request.getParameter("purpose");
 String app_venue=request.getParameter("venue")==null?"":request.getParameter("venue");
 String is_vip=request.getParameter("is_vip")==null?"":request.getParameter("is_vip");
@@ -95,8 +95,8 @@ try{
 				</TD>
 				<TD>			
 				<div class="form-group has-success">
-                   <label>Designation:</label>
-                     <input name="designation" type="text" value="<%=designation %>" class="form-control" placeholder="Enter Designation" required />                                              
+                   <label>Is VIP:</label>
+                     <input name="is_vip" type="checkbox" <%=is_vip.equals("on")?"selected":"" %> />                                              
                 </div>
 				</TD>
 				</TR>
@@ -106,8 +106,7 @@ try{
                    <label>Purpose:</label>                     
                      <textarea name="app_purpose" class="form-control" placeholder="Enter Purpose" required ><%=app_purpose %></textarea>                                              
                 </div>
-				</TD>		        
-							 			 
+				</TD>							 			 
 	       </TR>
 	       <TR class="success">
 				<TD>			
@@ -116,13 +115,12 @@ try{
 				   <input name="app_venue" type="text"  class="form-control" value="<%=app_venue %>" placeholder="Enter Venue" required />
                   </div>
 				</TD>
-		        
-	           <TD>			
+		        <TD>			
 				<div class="form-group has-success">
-                   <label>Is VIP:</label>
-                     <input name="is_vip" type="checkbox" <%=is_vip.equals("on")?"selected":"" %> />                                              
+                   <label>Remarks:</label>
+                     <input name="remarks" type="text" value="<%=remarks %>" class="form-control" placeholder="Enter Remarks" />                                              
                 </div>
-				</TD>
+				</TD>	           
 			</TR>	        				  		   		   	       	        
 	        <TR>
 				<TD class="formheader" align="center" colspan="5" height="20"></br>

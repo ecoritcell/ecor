@@ -9,7 +9,8 @@ public class UserDO {
 	String mobile;
 	String module;
 	int level;
-	int active; 	
+	int active;
+	String pageAccess;
 	Date creationdate;
 	Date lastupdated;
 	
@@ -19,7 +20,7 @@ public class UserDO {
 	}
 
 	public UserDO(int userid, String username, String userpassword, String email, String mobile, String module,
-			int level, int active, Date creationdate, Date lastupdated) {
+			int level, int active,String pageAccess, Date creationdate, Date lastupdated) {
 		super();
 		this.userid = userid;
 		this.username = username;
@@ -29,8 +30,16 @@ public class UserDO {
 		this.module = module;
 		this.level = level;
 		this.active = active;
+		this.pageAccess = pageAccess;
 		this.creationdate = creationdate;
 		this.lastupdated = lastupdated;
+	}
+	
+	public UserDO(int userid, String username,String pageAccess) {
+		super();		
+		this.userid = userid;
+		this.username = username;
+		this.pageAccess = pageAccess;		
 	}
 	
 	

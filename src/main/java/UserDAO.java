@@ -34,10 +34,8 @@ public List<UserDO> getUserDetails(String username, String password, String modu
     				while (rs.next()) {
     					int userid = rs.getInt("userid");
     					String usrname = rs.getString("username");
-    	                String module = rs.getString("module");
-    	                int level = rs.getInt("level");
-    	                int active = rs.getInt("active");
-    	                UserDO userdo = new UserDO(userid, usrname,"","","",module,level,active,null,null);
+    	                String page_access = rs.getString("page_access");
+    	                UserDO userdo = new UserDO(userid, usrname,page_access);
     	                totalList.add(userdo);
     	                System.out.println("userid: "+userid);
     				}
@@ -65,5 +63,6 @@ public List<UserDO> getUserDetails(String username, String password, String modu
      
     return totalList;
 }
+
 
 }

@@ -14,7 +14,7 @@ import customclasses.AppConfig;
 
 public class JpoDAO {
 
-	private int PAGE_SIZE = AppConfig.getTableSize();
+private int PAGE_SIZE = AppConfig.getTableSize();
 public int insertNewJpo(String jposlno,String department,String deptid,String jposubject,String filename,String filePath) throws SQLException {
         
 

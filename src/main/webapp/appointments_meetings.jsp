@@ -61,8 +61,13 @@ button {
                                   
                                 </div>
 <%
+
+String servletPath = request.getServletPath();
+// Extract page name like "page.jsp"
+String pageName = servletPath.substring(servletPath.lastIndexOf("/") + 1);
 String id=request.getParameter("id")==null?"":request.getParameter("id");
 String userid=(String)session.getAttribute("userName")==null?"":(String)session.getAttribute("userName");
+Set<String> page_access =  (HashSet<String>)session.getAttribute("page_access");
 String from_date=request.getParameter("from_date")==null?"":request.getParameter("from_date");
 String to_date=request.getParameter("to_date")==null?"":request.getParameter("to_date");
 
@@ -117,12 +122,12 @@ try{
                                             <tr class="success">
                                                 <th>Appointment / Meeting Date</th>
                                                 <th>Appointment / Meeting Time</th>
-                                                <th>Appointment / Meeting With</th>
-                                                <th>Designation</th>
+                                                <th>Appointment / Meeting With</th>                                              
                                                 <th>Purpose</th>                                                                                                                                
                                                 <th>Venue</th>
+                                                <th>Remarks</th>
                                                 <% 
-										  	if(!(userid.equals("") ||userid.equals("null"))){%>
+										  	if(!(userid.equals("") || userid.equals("null")) && page_access.contains(pageName)){%>
 										  		<th>Edit</th>
 										  	<% }%>
                                                                                                                                                                                            
@@ -165,13 +170,13 @@ while(rs.next()){
 %>	                                       <tr bgcolor="<%=color %>">
                                             <td ><%=tf.format(df.parse(rs.getString("appointment_date"))) %></td>
 										    <td ><%=rs.getString("appointment_time") %></td>                                       	
-										  	<td><%=rs.getString("appointment_with") %></td>	
-										  	<td><%=rs.getString("designation") %></td>										  											  											  	
+										  	<td><%=rs.getString("appointment_with") %></td>											  											  											  											  	
 										  	<td><%=rs.getString("purpose") %></td>
 										  	<td><%=rs.getString("venue") %></td>
+										  	<td><%=rs.getString("remarks") %></td>
 										  	<% 
-										  	if(!(userid.equals("") ||userid.equals(""))){%>
-										  	<td><a href="edit_appointment_details.jsp?appointment_date=<%=rs.getString("appointment_date") %>&appointment_time=<%=rs.getString("appointment_time") %>&appointment_with=<%=rs.getString("appointment_with") %>&designation=<%=rs.getString("designation") %>&purpose=<%=rs.getString("purpose") %>&venue=<%=rs.getString("venue") %>&id=<%=rs.getString("id") %>" ><img src="images/edit.png" width="20px"></a></td>
+										  	if(!(userid.equals("") ||userid.equals("")) && page_access.contains(pageName)){%>
+										  	<td><a href="edit_appointment_details.jsp?appointment_date=<%=rs.getString("appointment_date") %>&appointment_time=<%=rs.getString("appointment_time") %>&appointment_with=<%=rs.getString("appointment_with") %>&purpose=<%=rs.getString("purpose") %>&venue=<%=rs.getString("venue") %>&remarks=<%=rs.getString("remarks") %>&id=<%=rs.getString("id") %>" ><img src="images/edit.png" width="20px"></a></td>
 										  		
 										  	<% }%>
                                         </tr>
@@ -252,10 +257,13 @@ $(document).ready(function() {
 })
 
 function showHideAddNew(){
+	
+	let path = document.location.pathname;
+	let page = path.split("/").pop();
 	var btnnewanr = document.getElementById("btnaddnew");
 	var uname = '<%=session.getAttribute("userName")%>';
-	var module = '<%=session.getAttribute("module")%>';
-	if(uname !='null' && module == "APT"){			
+	let page_access = '<%=session.getAttribute("page_access")%>';
+	if(uname !=null && page_access !=null && page_access.includes(page)){		
 		btnnewanr.style.display = "block";
 	}
 	else{

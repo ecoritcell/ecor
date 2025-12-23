@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
-    <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+    
+    <%@ taglib prefix="fmt" uri="jakarta.tags.fmt" %>
 <% 
     String language = (String) session.getAttribute("language");
     if (language == null) language = "en";
@@ -61,7 +61,7 @@
 							      <li><a href="http://10.5.2.32/" target="_blank">SR</a></li>
 							      <li><a href="http://10.205.2.21/" target="_blank">SWR</a></li>
 							      <li><a href="http://10.150.2.19/" target="_blank">WCR</a></li>
-							      <li><a href="http://10.3.9.55/" target="_blank">WR</a></li>
+							      <li><a href="http://10.3.2.55/" target="_blank">WR</a></li>
 					              <li><a href="https://core.indianrailways.gov.in/index.jsp?lang=0" target="_blank">CORE</a></li>
 					              <li><a href="https://cofmow.indianrailways.gov.in/index.jsp?lang=0" target="_blank">COFMOW</a></li>
 					              <li><a href="http://10.100.2.19/" target="_blank">RDSO</a></li>
@@ -141,10 +141,11 @@
 					<li>
 						<a href="#"><fmt:message key="directory" /></a>
 						<ul class="submenu">
-			               	<li><a href="ExternalDocument?type=2&name=MAIN_TELEPHONE_DIRECTORY.pdf" target="_blank">MAIN TELEPHONE DIR</a></li>
+			               	<li><a href="ExternalDocument?type=2&name=MAIN_TELEPHONE_DIRECTORY.pdf" target="_blank">MAIN PHONE DIR</a></li>
 			                <li><a href="ExternalDocument?type=2&name=E_Mail_Directory.pdf" target="_blank">EMAIL DIR</a></li>
 			                <li><a href="ExternalDocument?type=2&name=STATION_DIRECTORY.pdf" target="_blank">STN DIR</a></li>
 			                <li><a href="ExternalDocument?type=2&name=INTERCOM_DIRECTORY.pdf" target="_blank">INTERCOM DIR</a></li>
+			                <li><a href="ExternalDocument?type=2&name=INMARSAT.pdf" target="_blank">INMARSAT PHONE DIR</a></li>
 		              </ul>
 					</li>
 				</ul>
