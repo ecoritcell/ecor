@@ -45,7 +45,7 @@
 						  <td>
 						 	<ul class="tblelements">
 								<!-- <li> <a href="DirectoryServlet?div=ECOR&diagram=TECHNICALCIRCULAR"> PCSTE Technical Circulars 2003-2024</a></li> -->
-								<li> <a href="circular_and_policy.jsp"> PCSTE Technical Circulars 2003-2024</a></li>
+								<li> <a href="circular_and_policy.jsp"> PCSTE Technical Circulars</a></li>
 							</ul>
 						 </td>
 						  <td>

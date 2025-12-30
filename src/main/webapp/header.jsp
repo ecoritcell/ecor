@@ -166,13 +166,15 @@ function openLoginPage(){
 function doLogout(){
 	
 	$.post("UserServlet", {operation:"Logout"},function(response, status) {	     
-		console.log("UserServlet response came");		
+		/* console.log("UserServlet response came"); */
+		localStorage.setItem("LOGOUT_EVENT", new Date().toISOString());
 		reloadthepage();
-			
-	  }) 
+		
+	  });
 }
 
 function reloadthepage(){
+	
 	window.location.reload(true);	
 }
 

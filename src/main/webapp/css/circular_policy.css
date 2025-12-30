@@ -1,10 +1,5 @@
 @charset "UTF-8";
 
-#mainbody{
-	
-	padding:0px;
-	margin:0px;
-}
 
 #pagename {
 	position: relative;
@@ -135,6 +130,10 @@
 .selectedPgae{
 	font-size:1.3em;
 	font-style: italic; 
+}
+
+.no-wrap {
+  white-space: nowrap;
 }
 
 

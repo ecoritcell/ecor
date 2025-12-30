@@ -6,6 +6,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 
 import com.google.gson.Gson;
 
@@ -96,15 +97,25 @@ public class CircularsServlet extends HttpServlet
 		String operation = req.getParameter("operation");
 		System.out.println("operation " + operation);		
 		
-		String lastrecordId = "-1";
+		 
 		
-		if(operation.equals("insertNewCircular")) {			
+		String lastrecordId = "-1";
+
+		
+		if(operation.equals("insertNewCircular") ||
+				operation.equals("updateCircular")) {			
 			
 			try {				
-				
+			
+				 
 				String fileExtension="";
 				String filePath = "";
 
+				String record_id = req.getParameter("txt-record-id");			
+				System.out.println("record_id : "+record_id);
+				if(operation.equals("updateCircular") && (record_id == null || record_id.length() == 0))
+					return;				
+				
 				String cat_id = req.getParameter("categorydropdown").trim();			
 				System.out.println("cat_id : "+cat_id);
 				
@@ -116,6 +127,9 @@ public class CircularsServlet extends HttpServlet
 								
 				String ltr_subject = req.getParameter("txt-ltr-subject").trim();
 				System.out.println("txt-ltr-subject : "+ltr_subject);
+				
+				String existing_file_name = req.getParameter("existing-file-name");
+				System.out.println("existing_file_name : "+existing_file_name);
 								
 				String fileName = "";
 				Part p =  req.getPart("uploaddocument");		
@@ -172,17 +186,23 @@ public class CircularsServlet extends HttpServlet
 						} catch (Exception e) {
 							
 							fileName = "";
-							System.out.println("Excepetion occured in GmiServlet");
+							System.out.println("Excepetion occured in CircularServlet");
 							e.printStackTrace(); 
 							throw new ServletException(e); 
 						}
 						
 					}else {
-						System.out.println("File name not pound.");
+						
+						if(operation.equals("updateCircular"))
+							filewritestatus = 1;
+						System.out.println("File name not found.");
 					}
 				}
 				else {
 					
+					if(operation.equals("updateCircular"))
+						filewritestatus = 1;
+											
 					System.out.println("File not pound.");					
 				}		
 				
@@ -192,21 +212,32 @@ public class CircularsServlet extends HttpServlet
 					  try {
 
 						  CircularsDAO circulardao = new CircularsDAO(); 
-						  int recordId = circulardao.insertNewCircular(cat_id,ltr_date,ltr_no,ltr_subject,fileName,filePath);
+						  int recordId = -1;
+						  if(operation.equals("insertNewCircular"))
+							  recordId = circulardao.insertNewCircular(cat_id,ltr_date,ltr_no,ltr_subject,fileName,filePath);
+						  else if (operation.equals("updateCircular")) 
+							  recordId = circulardao.updateCircular(record_id,cat_id,ltr_date,ltr_no,ltr_subject,fileName.length()>0?fileName:existing_file_name);
+						  
 						  if(recordId == -1) {
-							  System.out.println("Some error occured while inserting new circular");
-							  deleteCustomFile(fileName,filePath);
+							  System.out.println("Some error occured while inserting/updat new circular");
+							  deleteCustomFile(fileName);
 						  }
 						  else {
-							  System.out.println("New Circular Record Inserted = " + recordId);					
-
+							  
+							  //New file found so deleting old file.
+							  if(operation.equals("updateCircular") && (fileName !=null && fileName.length()>0)) {
+								  deleteCustomFile(existing_file_name);
+								  System.out.println("Existing file deleted.");
+							  }
+								  
+							  System.out.println("Circular Record Inserted/Updated = " + recordId);					
 						  }
 						  
 						  lastrecordId =Integer.toString(recordId);
 
 					  } catch (Exception e) {
 						  						  
-						  deleteCustomFile(fileName,filePath);
+						  deleteCustomFile(fileName);
 						  System.out.println("Excepetion occured in CircularServlet");
 						  e.printStackTrace(); 
 						  throw new ServletException(e); 
@@ -222,22 +253,54 @@ public class CircularsServlet extends HttpServlet
 				  throw new ServletException(e); 
 			}
 			finally {
+				
 				System.out.println("Finally called");
 				 resp.setContentType("text/plain"); 
 				 resp.getWriter().write(lastrecordId);
 			}			
 			
-		}		
+		}else if (operation.equals("deleteCircular")) {
+			
+			  try {
+
+				  String record_id = req.getParameter("recordid");			
+				  System.out.println("record_id : "+record_id);					
+				  CircularsDAO circulardao = new CircularsDAO(); 
+				  Map<String, String> valuesMap = circulardao.deleteCircular(record_id);
+				  lastrecordId = valuesMap.get("deleted_record_id");
+				  String fileName = valuesMap.get("deleted_file_name");
+				  System.out.println("Deleted record id = " + lastrecordId);
+				  if(fileName != null && fileName.length()>0 ) {
+					  deleteCustomFile(fileName);
+				  }
+				  
+			  } catch (Exception e) {
+				  						  
+				  System.out.println("Excepetion occured in CircularServlet");
+				  e.printStackTrace(); 
+				  throw new ServletException(e); 
+			  }finally {
+				
+				  System.out.println("Finally called");
+				  resp.setContentType("text/plain"); 
+				  resp.getWriter().write(lastrecordId);
+			}
+			
+		}
 	}
 	
-	public void deleteCustomFile(String fileName,String filePath) {
+	public void deleteCustomFile(String fileName) {
 		
-		if(fileName.length() > 0 && filePath.length() > 0) {
+		System.out.println("File name for deletion = "+fileName);
+		if(fileName !=null && fileName.length() > 0) {
+			String filePath =  AppConfig.getFilePath()+File.separator + fileName;	
 			  File file = new File(filePath) ;
 				// check if the file  present or not
 				if(file.exists()) {
 					file.delete() ;
-					System.out.println("File Deleted");
+					System.out.println("File exist and  deleted.");
+				}else {
+					System.out.println("File does not exist.");
 				}
 		  }
 	}

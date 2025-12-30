@@ -17,6 +17,7 @@ body {
 	background-color: #e1e1e1;	
 	 /* background-image: linear-gradient(red, yellow); */
 	/* background-image: linear-gradie */
+	
 }
 
 
@@ -27,17 +28,17 @@ body {
 	margin: 0px auto;
 }
 
-
-
 #header-wrapper
 {
-	overflow: hidden;
+    top: 0;
+    left: 0;
+	/* overflow: hidden; */
 	/* background: url(images/bg01.png) repeat; */
 	/* background-size: 100%; */
 	/* padding: 6em 0em 2em 0em; */
 	padding: 0em 0em 0em 0em;
 	/* background: #333333; */
-	background: #005e8a;
+	background: #005e8a;	
 }
 
 #header {
@@ -118,8 +119,8 @@ body {
 	/* background: #333333; */
 	background: #005e8a;
 	bottom: 0px;
-	width: 100%
-	
+	left: 0;
+	width: 100%;
 }
 
 #footer {

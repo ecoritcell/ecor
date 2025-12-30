@@ -121,14 +121,20 @@ function submitClicked(){
 	            	/*  modal.style.display = "none"; */
 	            	/*  changeLoginLogoutBtn(); */
 	            	 /* window.location.href = "index.jsp" */
+	            	 
 	            	 window.opener.location.reload(); // Reload the parent window (index.jsp)
-    				window.close(); // 
+    				window.close(); //
+    				sendLoginEvent();
 	             }
 	       	 }        	
 	       
 	  	  }) 			
 	}
 	
+}
+
+function sendLoginEvent(){
+	localStorage.setItem("LOGIN_EVENT", new Date().toISOString());
 }
 
 <%-- window.onload = function() {

@@ -260,10 +260,16 @@ $(document).ready(function() {
 	showHideAddNew();
 })
 
-document.addEventListener("visibilitychange", function() {
+/* document.addEventListener("visibilitychange", function() {
 	  if (document.visibilityState === "visible") {
 	    location.reload(); // Reloads the page when user switches back to this tab
 	  }
+	}); */
+	
+	window.addEventListener("storage", function(e) {
+	    if (e.key === "LOGOUT_EVENT" || e.key === "LOGIN_EVENT") {	    	
+	    	 window.location.reload();	        
+	    } 
 	});
 
 

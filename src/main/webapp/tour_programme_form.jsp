@@ -156,6 +156,38 @@ catch(Exception e)
 </body>
 
 <script type="text/javascript">
+
+$(document).ready(function() {		
+	
+	checkUserSession();	
+})
+
+
+	window.addEventListener("storage", function(e) {		 
+	    if (e.key === "LOGOUT_EVENT" || e.key === "LOGIN_EVENT") {	    	
+	    	 window.location.reload();	        
+	    }  
+	});
+
+function checkUserSession(){
+	
+	let path = document.location.pathname;
+	let page = path.split("/").pop();
+	var uname = '<%=session.getAttribute("userName")%>';
+	let page_access = '<%=session.getAttribute("page_access")%>';
+	if(uname !=null && page_access !=null && page_access.includes(page)){			
+		console.log("Session exist");
+	}
+	else{
+		console.log("Session doesn't exist");
+		window.location.href = "tour_programme.jsp";
+	}
+}
+
+
+</script>
+
+<script type="text/javascript">
 $("#header").load("header.jsp");
 $("#footer").load("html/footer.html");
 </script>

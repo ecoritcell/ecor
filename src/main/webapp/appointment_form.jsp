@@ -157,6 +157,18 @@ catch(Exception e)
 
 $(document).ready(function() {		
 	
+	checkUserSession();	
+})
+
+
+	window.addEventListener("storage", function(e) {		 
+	    if (e.key === "LOGOUT_EVENT" || e.key === "LOGIN_EVENT") {	    	
+	    	 window.location.reload();	        
+	    }  
+	});
+
+function checkUserSession(){
+	
 	let path = document.location.pathname;
 	let page = path.split("/").pop();
 	var uname = '<%=session.getAttribute("userName")%>';
@@ -168,11 +180,8 @@ $(document).ready(function() {
 		console.log("Session doesn't exist");
 		window.location.href = "appointments_meetings.jsp";
 	}
-	
-	/* if((String)session.getAttribute("userName")==null){		
-		window.location.href = "appointments_meetings.jsp";
-	} */
-})
+}
+
 
 </script>
 
