@@ -16,7 +16,7 @@ import customclasses.DBConnect;
 public class CircularsDAO {
 
 	private int PAGE_SIZE = AppConfig.getTableSize();
-	public int insertNewCircular(String cat_id,String ltr_date,String ltr_no,String ltr_subject,String filename,String filePath) throws SQLException {
+	public int insertNewCircular(String cat_group, String cat_id,String ltr_date,String ltr_no,String ltr_subject,String filename,String filePath) throws SQLException {
 	        
 
 			int lastRecordId = -1;
@@ -32,16 +32,17 @@ public class CircularsDAO {
 					if(cat_id.length() >0)
 						category = Integer.parseInt(cat_id);
 					if(category != -1) {
-						cstmt = con.prepareCall("{call insertNewCircular(?,?,?,?,?,?)}");
-						cstmt.setInt(1, category);
-						cstmt.setString(2, ltr_date);
-						cstmt.setString(3, ltr_no);
-						cstmt.setString(4, ltr_subject);
-						cstmt.setString(5, filename);
-						cstmt.registerOutParameter(6, Types.INTEGER);
+						cstmt = con.prepareCall("{call insertNewCircular(?,?,?,?,?,?,?)}");
+						cstmt.setString(1, cat_group);
+						cstmt.setInt(2, category);
+						cstmt.setString(3, ltr_date);
+						cstmt.setString(4, ltr_no);
+						cstmt.setString(5, ltr_subject);
+						cstmt.setString(6, filename);
+						cstmt.registerOutParameter(7, Types.INTEGER);
 						cstmt.executeUpdate();
 						
-						lastRecordId = cstmt.getInt(6);
+						lastRecordId = cstmt.getInt(7);
 						System.out.println("New Record ID: "+lastRecordId );
 						
 					}else {
@@ -184,7 +185,7 @@ public class CircularsDAO {
         return valuesMap;
 	}
 	
-	public HashMap<String, Object> getCircularsByCategory(int cat_id,int pagenumber) throws SQLException {
+	public HashMap<String, Object> getCircularsByCategory(int cat_id,int pagenumber, String cat_group) throws SQLException {
 		
 		HashMap<String, Object>  myHashMap = new HashMap<>();
 		List<CircularsDO> totalList = new ArrayList<>();
@@ -200,10 +201,11 @@ public class CircularsDAO {
 				pagenumber -=1;
 				int offset =  pagenumber*PAGE_SIZE;;
 				
-				cstmt = con.prepareCall("{call getCircularsByCategory(?,?,?)}");
-				cstmt.setInt(1, cat_id);
-				cstmt.setInt(2,PAGE_SIZE);
-				cstmt.setInt(3,offset);
+				cstmt = con.prepareCall("{call getCircularsByCategory(?,?,?,?)}");
+				cstmt.setString(1, cat_group);
+				cstmt.setInt(2, cat_id);
+				cstmt.setInt(3,PAGE_SIZE);
+				cstmt.setInt(4,offset);
 				rs = cstmt.executeQuery();
 				if(rs != null)
 				{
@@ -214,6 +216,7 @@ public class CircularsDAO {
 							totalcount = rs.getInt("total_count");
 						
 						int record_id = rs.getInt("record_id");
+						String category_group = rs.getString("category_group");
 						int category_id = rs.getInt("category_id");
 		                String cat_name = rs.getString("category_name");
 		                String ltr_no = rs.getString("letter_no");
@@ -222,7 +225,8 @@ public class CircularsDAO {
 		                String formatted_date = rs.getString("formatted_date");
 		                String filename = rs.getString("file_name");
 		                
-		                CircularsDO circ_do = new CircularsDO(record_id, category_id,cat_name,
+		                		                
+		                CircularsDO circ_do = new CircularsDO(record_id,category_group, category_id,cat_name,
 		                		ltr_no,subject,ltr_date,formatted_date,filename,null,null);
 		                totalList.add(circ_do);
 					}

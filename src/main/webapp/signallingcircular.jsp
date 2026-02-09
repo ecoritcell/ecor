@@ -38,7 +38,7 @@
 						 <td>
 						 	<ul class="tblelements">
 								<li> <a href="https://indianrailways.gov.in/railwayboard/view_section.jsp?lang=0&id=0,1,304,366,544,1623"> Railway Board Policy Letters & Circular</a></li>
-								<li> <a href="DirectoryServlet?div=ECOR&diagram=RDSOPL">RDSO Policy Letter</a></li>
+								<li> <a href="rdso_policy_and_letter.jsp">RDSO Policy Letter</a></li>
 								<li> <a href="DirectoryServlet?div=ECOR&diagram=ZONALSIGNALCIRCULAR">Zone(ECoR)</a></li>
 							</ul>
 						 </td>

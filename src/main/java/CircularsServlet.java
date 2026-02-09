@@ -42,12 +42,13 @@ public class CircularsServlet extends HttpServlet
 				 if(pageno !=null && pageno.length()>0)
 					 pagenumber = Integer.parseInt(pageno);
 
+				 String category_group = req.getParameter("category_group");
 				String catid = req.getParameter("category_id");
 				int cat_id = catid != null?Integer.parseInt(catid):-1;
 
 				try {
 					CircularsDAO  circular_dao = new CircularsDAO();
-					HashMap<String,Object> myHashMap = circular_dao.getCircularsByCategory(cat_id,pagenumber);
+					HashMap<String,Object> myHashMap = circular_dao.getCircularsByCategory(cat_id,pagenumber,category_group);
 					String json = new Gson().toJson(myHashMap);
 					System.out.println("Json : " + json);
 					resp.setContentType("application/json");
@@ -59,14 +60,32 @@ public class CircularsServlet extends HttpServlet
 					throw new ServletException(e);
 				}
 				
-			}else if(operation != null && operation.equalsIgnoreCase("getAllCategory")) {
+			}else if(operation != null && operation.equalsIgnoreCase("getTechnicalCategory")) {
 				
 				
 				System.out.println("Inside opration " + operation + " block.");
 				try {
 					
 					CategoryDAO  cat_dao = new CategoryDAO();
-					HashMap<String,ArrayList<CategoryDO>> myHashMap = cat_dao.getAllCategory();
+					HashMap<String,ArrayList<CategoryDO>> myHashMap = cat_dao.getTechnicalCategory();
+					String json = new Gson().toJson(myHashMap);
+					System.out.println("Json : " + json);
+					resp.setContentType("application/json");
+					resp.setCharacterEncoding("UTF-8");
+					resp.getWriter().write(json);
+				} catch (Exception e) {
+					System.out.println("Excepetion occured in CircularsServlet");
+					e.printStackTrace();
+					throw new ServletException(e);
+				}
+			}else if(operation != null && operation.equalsIgnoreCase("getRDSOCategory")) {
+				
+				
+				System.out.println("Inside opration " + operation + " block.");
+				try {
+					
+					CategoryDAO  cat_dao = new CategoryDAO();
+					HashMap<String,ArrayList<CategoryDO>> myHashMap = cat_dao.getRDSOCategory();
 					String json = new Gson().toJson(myHashMap);
 					System.out.println("Json : " + json);
 					resp.setContentType("application/json");
@@ -113,8 +132,13 @@ public class CircularsServlet extends HttpServlet
 
 				String record_id = req.getParameter("txt-record-id");			
 				System.out.println("record_id : "+record_id);
+				
+				
 				if(operation.equals("updateCircular") && (record_id == null || record_id.length() == 0))
 					return;				
+				
+				String category_group = req.getParameter("txt-category-group");			
+				System.out.println("category_group : "+category_group);
 				
 				String cat_id = req.getParameter("categorydropdown").trim();			
 				System.out.println("cat_id : "+cat_id);
@@ -214,7 +238,7 @@ public class CircularsServlet extends HttpServlet
 						  CircularsDAO circulardao = new CircularsDAO(); 
 						  int recordId = -1;
 						  if(operation.equals("insertNewCircular"))
-							  recordId = circulardao.insertNewCircular(cat_id,ltr_date,ltr_no,ltr_subject,fileName,filePath);
+							  recordId = circulardao.insertNewCircular(category_group,cat_id,ltr_date,ltr_no,ltr_subject,fileName,filePath);
 						  else if (operation.equals("updateCircular")) 
 							  recordId = circulardao.updateCircular(record_id,cat_id,ltr_date,ltr_no,ltr_subject,fileName.length()>0?fileName:existing_file_name);
 						  

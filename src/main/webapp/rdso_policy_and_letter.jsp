@@ -26,7 +26,7 @@ else
 <script	src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <link href="css/default.css" rel="stylesheet" type="text/css"media="all">
 <link href="css/fonts.css" rel="stylesheet" type="text/css" media="all">
-<link href="css/circular_policy.css" rel="stylesheet" type="text/css" media="all">
+<link href="css/rdso_policy_and_letter.css" rel="stylesheet" type="text/css" media="all">
 
 </head>
 <body>
@@ -36,7 +36,7 @@ else
 	<div id="mainbody">
 		<div id="pagename-wrapper">
 			<div id="pagename" class="container">
-				<h3>CIRCULARS AND POLICY LETTERS</h3>
+				<h3>RDSO POLICY LETTERS</h3>
 			</div>
 		</div>
 
@@ -47,7 +47,7 @@ else
 				<form action="#">
 					<div id="formdiv">
 						<label id="category-lable" for="category" class="flex-items">Select Category</label> 
-							<select id="category" name="category" class="flex-items" style="text-align: center;">
+							<select id="category" name="category" class="flex-items select-design" style="text-align: center;">
 								<option value="-1"> --- All --- </option>
 						</select>
 						<br> 
@@ -112,8 +112,8 @@ else
 			    </colgroup> -->
 					<tr>
 						<td hidden="true">
-					        <input id="txt-record-id" name="txt-record-id" class="common-input" type="text" hidden="true">  
-					        <input id="txt-category-group" name="txt-category-group" class="common-input" type="text" hidden="true" value="TECHNICAL">
+					        <input id="txt-record-id" name="txt-record-id" class="common-input" type="text" hidden="true">
+					        <input id="txt-category-group" name="txt-category-group" class="common-input" type="text" hidden="true" value="RDSO">  
 					        <input id="existing-file-name" name="existing-file-name" class="common-input" type="text" hidden="true">
 						</td>
 						
@@ -243,7 +243,7 @@ let height = screen.availHeight;
 
 	 	showHideAddNewBtn();	 	
 		loadCategoryWiseCirculars();
-		loadTechnicalCategory();
+		loadAllCategory();
 		 
 })
 
@@ -278,7 +278,7 @@ let height = screen.availHeight;
 		
     	console.log("category_id =  "+selected_cat_id );  
     	
-    	$.get("CircularsServlet",{operation:"getCircularsByCategory",category_group:'TECHNICAL', category_id:selected_cat_id,pagenumber:current_page_no},function(response, status) {
+    	$.get("CircularsServlet",{operation:"getCircularsByCategory",category_group:'RDSO',category_id:selected_cat_id,pagenumber:current_page_no},function(response, status) {
 			
 	        var $anrtablebody = $("#anrtablebody");
 	        $anrtablebody.find("tr").remove();        
@@ -376,11 +376,11 @@ let height = screen.availHeight;
 	  	  });
 	}
 	
-function loadTechnicalCategory(){
+function loadAllCategory(){
 		
 		console.log("loadAllCategory Called" );        	
 		$("#category option[value != -1]").remove();		
-		$.get("CircularsServlet",{operation:"getTechnicalCategory"},function(response, status) {
+		$.get("CircularsServlet",{operation:"getRDSOCategory"},function(response, status) {
 			
 			console.log("response " + response);
 			if( !jQuery.isEmptyObject(response)){			
@@ -389,13 +389,13 @@ function loadTechnicalCategory(){
 		        $.each(response, function(key,value){
 		        	
 		        	console.log("key = " +key);
-		        	let $optgroup = $("<optgroup class = 'optgroup-design'>").attr("label", key);
+		        	/* let $optgroup = $("<optgroup class = 'optgroup-design'>").attr("label", key); */
 		        	$.each(value, function(index,obj){
 
-		        		$("<option class = 'select-design'>").val(obj.cat_id).text(obj.sub_category).appendTo($optgroup);
+		        		$("<option class = 'select-design'>").val(obj.cat_id).text(obj.sub_category).appendTo($select);
 		        	});
 		        	
-		        	$select.append($optgroup);
+		        	/* $select.append($optgroup); */
 		        	
 		        	renderCategoryDropdown();
 		        });
@@ -416,13 +416,13 @@ function renderCategoryDropdown(){
 	    $.each(category_values, function(key,value){
 	    	
 	    	console.log("key = " +key);
-	    	let $optgroup = $("<optgroup class = 'optgroup-design'>").attr("label", key);
+	    	/* let $optgroup = $("<optgroup class = 'optgroup-design'>").attr("label", key); */
 	    	$.each(value, function(index,obj){
 
-	    		$("<option class = 'select-design'>").val(obj.cat_id).text(obj.sub_category).appendTo($optgroup);
+	    		$("<option class = 'select-design'>").val(obj.cat_id).text(obj.sub_category).appendTo($select);
 	    	});
 	    	
-	    	$select.append($optgroup);
+	    	/* $select.append($optgroup); */
 	    });
 	}
 }

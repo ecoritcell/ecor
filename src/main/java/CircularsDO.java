@@ -4,6 +4,7 @@ public class CircularsDO {
 
 	
 	int record_id;
+	String category_group;
 	int category_id;
 	String category_name;
 	String letter_no;
@@ -17,10 +18,11 @@ public class CircularsDO {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public CircularsDO(int record_id, int category_id, String category_name, String letter_no,
+	public CircularsDO(int record_id, String category_group, int category_id, String category_name, String letter_no,
 			String letter_subject, String letter_date,String formatted_date, String file_name, Date creationdate, Date lastupdated) {
 		super();
 		this.record_id = record_id;
+		this.category_group = category_group;
 		this.category_id = category_id;
 		this.category_name = category_name;
 		this.letter_no = letter_no;
