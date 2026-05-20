@@ -330,7 +330,7 @@
 									<li><a href="https://www.ireps.gov.in/" target="_blank"> <fmt:message key="ireps" /> </a></li>
 									<li><a href="https://www.ireps.gov.in/immis/" target="_blank"> <fmt:message key="imms" /> </a></li>
 									<li><a href="https://ireps.gov.in/iMMS/logon" target="_blank"> <fmt:message key="udm" /> </a></li>
-									<li><a href="http://10.180.18.249/SIAS/" target="_blank"> <fmt:message key="sias" /> </a></li>
+									<li><a href="http://10.180.18.250:8085/SIAS/" target="_blank"> <fmt:message key="sias" /> </a></li>
 									<li><a href="https://eprocure.gov.in/cppp/" target="_blank"><fmt:message key="gem" /></a> </li>
 									<li><a href="https://rpf.indianrailways.gov.in/RPF/" target="_blank"><fmt:message key="rpfsmis" /></a> </li>
 									<li><a href="https://www.protean-tinpan.com/" target="_blank"><fmt:message key="nsdl" /></a> </li>									

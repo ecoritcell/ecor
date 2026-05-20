@@ -167,6 +167,10 @@ public class DirectoryServlet extends HttpServlet {
 				baseDirString = config.getProperty("live.watsipas.folderpath");
 			}
 			
+		}else if (diagram.equalsIgnoreCase("TCRD")) { // Telecom Cable Route Diagram
+			
+			baseDirString = config.getProperty("live.ecortcrd.folderpath"); 
+			
 		}else {
 			
 		}

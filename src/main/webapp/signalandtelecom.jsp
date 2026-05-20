@@ -54,7 +54,7 @@
 								<li> <a href="#">Telephone Directory</a></li>
 								<li> <a href="#">Internet Site</a></li>
 								<li> <a href="https://eastcoastrail.indianrailways.gov.in/view_section.jsp?lang=0&id=0,2,484,1020">ECoR Time Table</a></li>
-								<li> <a href="http://10.180.18.249/SIAS/">SIAS</a></li>
+								<li> <a href="http://10.180.18.250:8085/SIAS/">SIAS</a></li>
 								<li> <a href="https://indianrailways.gov.in/railwayboard/view_section.jsp?id=0,1,304,366,544">SIGNAL DIRECTORATE</a></li>
 								<li> <a href="https://telerb.railnet.gov.in/">TELECOM DIRECTORATE</a></li>
 							</ul>
@@ -87,6 +87,7 @@
 								<li> <a href="https://eastcoastrail.indianrailways.gov.in/view_section.jsp?lang=0&id=0,6,922,927">G& SR</a></li>
 								<li> <a href="signalsip.jsp">Signal SIP</a></li>
 								<li> <a href="signallingcircular.jsp">Signalling Circular</a></li>
+								<li> <a href="DirectoryServlet?div=ECoR&diagram=TCRD">Telecom Cable Route Diagram</a></li>
 							</ul>
 						</td>
 						
