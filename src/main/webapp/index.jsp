@@ -73,7 +73,7 @@
 						<a class="dropdown" href="#"><fmt:message key="divisions" /></a>
 						<ul class="submenu">							
 							<li><a href="https://eastcoastrail.indianrailways.gov.in/view_section.jsp?lang=0&id=0,1,1290,1296" target="_blank"> KUR DIVISION</a></li>
-							<li><a href="https://eastcoastrail.indianrailways.gov.in/view_section.jsp?lang=0&id=0,1,1290,1295" target="_blank"> WAT DIVISION</a></li>
+							<li><a href="https://eastcoastrail.indianrailways.gov.in/view_section.jsp?lang=0&id=0,1,1290,1295" target="_blank"> RGDA DIVISION</a></li>
 							<li><a href="https://eastcoastrail.indianrailways.gov.in/view_section.jsp?lang=0&id=0,1,1290,1297" target="_blank"> SBP DIVISION</a></li>
 						</ul>
 						
@@ -333,7 +333,8 @@
 									<li><a href="http://10.180.18.250:8085/SIAS/" target="_blank"> <fmt:message key="sias" /> </a></li>
 									<li><a href="https://eprocure.gov.in/cppp/" target="_blank"><fmt:message key="gem" /></a> </li>
 									<li><a href="https://rpf.indianrailways.gov.in/RPF/" target="_blank"><fmt:message key="rpfsmis" /></a> </li>
-									<li><a href="https://www.protean-tinpan.com/" target="_blank"><fmt:message key="nsdl" /></a> </li>									
+									<%-- <li><a href="https://www.protean-tinpan.com/" target="_blank"><fmt:message key="nsdl" /></a> </li> --%>									
+									<li><a href="http://112.133.221.4:2004/Home/Login" target="_blank"><fmt:message key="cpms" /></a> </li>
 								</ul>
 							</div>
 							
